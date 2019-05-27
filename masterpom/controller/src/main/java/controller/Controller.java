@@ -38,7 +38,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+		this.view.printMessage("Appuyer sur les flèches 'Z', 'S', 'D' ou 'Q', pour déplacer Hello world dans la langue d votre choix.");
 	}
 
 	/**
@@ -74,16 +74,16 @@ public final class Controller implements IController {
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
-			case English:
+			case Up:
 				this.model.loadHelloWorld("GB");
 				break;
-			case Francais:
+			case Down:
 				this.model.loadHelloWorld("FR");
 				break;
-			case Deutsch:
+			case Right:
 				this.model.loadHelloWorld("DE");
 				break;
-			case Indonesia:
+			case Left:
 				this.model.loadHelloWorld("ID");
 				break;
 			default:
