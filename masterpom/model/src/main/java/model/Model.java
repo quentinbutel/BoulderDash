@@ -5,6 +5,7 @@ import java.util.Observable;
 
 import contract.IModel;
 import entity.HelloWorld;
+import entity.Map;
 
 /**
  * The Class Model.
@@ -14,13 +15,13 @@ import entity.HelloWorld;
 public final class Model extends Observable implements IModel {
 
 	/** The helloWorld. */
-	private HelloWorld helloWorld;
+	private Map map;
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		this.helloWorld = new HelloWorld();
+		this.map = new Map();
 	}
 
 	/**
@@ -33,8 +34,15 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage()
 	 */
-	public HelloWorld getHelloWorld() {
-		return this.helloWorld;
+	
+	public Map getMap() {
+		return map;
+	}
+
+	public void setMap(Map map) {
+		this.map = map;
+		this.notifyObservers();
+		this.hasChanged();
 	}
 
 	/**
@@ -43,11 +51,9 @@ public final class Model extends Observable implements IModel {
      * @param helloWorld
      *            the new hello world
      */
-	private void setHelloWorld(final HelloWorld helloWorld) {
-		this.helloWorld = helloWorld;
-		this.setChanged();
-		this.notifyObservers();
-	}
+	
+
+	
 
 	/**
      * Load hello world.
@@ -60,15 +66,7 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadHelloWorld(final String code) {
-		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setHelloWorld(daoHelloWorld.find(code));
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
+	
 	/**
      * Gets the observable.
      *
@@ -82,4 +80,18 @@ public final class Model extends Observable implements IModel {
 	public Observable getObservable() {
 		return this;
 	}
-}
+
+	
+	public void loadmap(int key) {
+		try {
+			final DAOMap daomap = new DAOMap(DBConnection.getInstance().getConnection());
+			this.setMap(daomap.find(key));
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	
+
+}	

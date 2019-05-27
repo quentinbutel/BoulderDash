@@ -42,7 +42,7 @@ public class Sprite {
 	}
 	
 	public void loadImage() throws IOException {
-		this.setImage(ImageIO.read(new File("C:\\Users\\qbute\\Documents\\Projet\\Projet 5\\SpritesCut/" + this.getImageName())).getScaledInstance(48, 48, Image.SCALE_DEFAULT));
+		this.setImage(ImageIO.read(new File("C:\\Users\\qbute\\git\\BoulderDash1\\masterpom\\entity\\SpritesCut/" + this.getImageName())).getScaledInstance(48, 48, Image.SCALE_DEFAULT));
 	}
 	
 	public boolean isImageLoaded() {

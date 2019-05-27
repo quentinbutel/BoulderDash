@@ -2,6 +2,8 @@ package entity;
 
 import java.awt.Image;
 
+
+
 /**
  * The Class Entity.
  *
