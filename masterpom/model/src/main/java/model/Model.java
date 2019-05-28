@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import contract.IModel;
 import entity.IMap;
-
+import entity.Sprite;
 import entity.mobile.Charact;
 import entity.mobile.MobileEntity;
 
@@ -31,9 +31,10 @@ private DAOMap dao;
 	 */
 	public Model(int Level) throws IOException {
 		super();
-		
-		this.setMap(dao.find(Level));
+		Sprite.loadSpriteSheet();
+		this.setMap(DAOMap.find(Level));
 		this.setCharacter(new Charact(1, 1, map));
+		
 	}
 
 	

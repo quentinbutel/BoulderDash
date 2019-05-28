@@ -1,6 +1,8 @@
 package entity;
 
 import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -11,6 +13,29 @@ public class Sprite {
 	private String imageName;
 	private char charImage;
 	private boolean imageLoaded;
+	private BufferedImage buffer;
+	public static BufferedImage Chara;
+	public static BufferedImage world;
+	private Rectangle part;
+	
+	
+public Sprite(char character, final BufferedImage buf, final Rectangle part) {
+		this.setCharImage(character);
+		this.buffer = buf;
+		this.part = part;
+	}
+
+public static void loadSpriteSheet() {
+	try {
+		Sprite.Chara= ImageIO.read(new File("C:\\Users\\qbute\\Documents\\Projet\\Projet 5\\image\\74336.png"));
+		Sprite.world= ImageIO.read(new File("C:\\Users\\qbute\\Documents\\Projet\\Projet 5\\image\\74359.png"));
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+}
+
 	
 	public Image getImage() {
 		return image;
@@ -37,12 +62,10 @@ public class Sprite {
 	}
 
 	
-	public Sprite(char character, String imageName) {
-		
-	}
+	
 	
 	public void loadImage() throws IOException {
-		this.setImage(ImageIO.read(new File("C:\\Users\\qbute\\git\\BoulderDash1\\masterpom\\entity\\SpritesCut/" + this.getImageName())).getScaledInstance(48, 48, Image.SCALE_DEFAULT));
+		this.setImage(buffer.getSubimage(part.x, part.y, part.width, part.height));
 	}
 	
 	public boolean isImageLoaded() {

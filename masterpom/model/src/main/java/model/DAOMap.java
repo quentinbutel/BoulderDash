@@ -15,10 +15,10 @@ import entity.mobile.Diamond;
 import entity.motionless.MotionLessEntityFactory;
 
 
-public class DAOMap {
+public class DAOMap{
 
-	private final  int width = 32;
-	private final  int height = 16;
+	private final  static int width = 33;
+	private final  static int height = 17;
 	private final Connection connection;
 	public DAOMap(Connection connection) throws SQLException {
 		this.connection = connection;
@@ -44,17 +44,18 @@ public class DAOMap {
 	}
 
 	
-	public IMap find(int id) throws IOException {
+	public static  IMap find(int id) throws IOException {
 		IMap map1;
 		try {
-			final String sql = "{call mapById(?)}";
-			final CallableStatement call = this.getConnection().prepareCall(sql);
+			final String sql = "{call MapsById(?)}";
+			final CallableStatement call =prepareCall(sql);
 			call.setInt(1, id);
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
+				System.out.println(resultSet.getString("map"));
 				map1 = new Map(new IEntity[width][height]);
-				this.setmEntityOnMap(resultSet, map1);
+				DAOMap.setmEntityOnMap(resultSet, map1);
 			}
 			resultSet.close();
 			
@@ -69,7 +70,7 @@ public class DAOMap {
 		return connection;
 	}
 	
-	public void setmEntityOnMap(ResultSet result, IMap map1) throws SQLException, IOException {
+	public static  void setmEntityOnMap(ResultSet result, IMap map1) throws SQLException, IOException {
 		int currentX = 0;
 		int currentY = 0;
 		
@@ -84,18 +85,23 @@ public class DAOMap {
 				map1.addDiamond();
 			}
 			currentX++;
+			
+			if (currentX % width == 0 && currentX != 0) {
+				currentX = 0;
+				currentY++;
+			}
 		}
-		
-		if (currentX % width == 0 && currentX != 0) {
-			currentX = 0;
-			currentY++;
-		}
-		
 		
 
 	}
+	public static CallableStatement prepareCall(final String query) throws SQLException {
+	        return DBConnection.getInstance().getConnection().prepareCall(query);
+	    }
 
 	
 	
 
 }
+
+
+

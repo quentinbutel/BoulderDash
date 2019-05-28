@@ -1,4 +1,5 @@
 package entity.mobile;
+import java.awt.Rectangle;
 import java.io.IOException;
 
 import entity.IMap;
@@ -18,7 +19,7 @@ public class Diamond extends MobileEntity{
 		// TODO Auto-generated constructor stub
 	}
 
-	private static final Sprite sprite = new Sprite('A', "diamond.png");
+	private static final Sprite sprite = new Sprite('A', Sprite.world, new Rectangle(64, 0, 16, 16));
 
 	@Override
 	public void moveDown() {

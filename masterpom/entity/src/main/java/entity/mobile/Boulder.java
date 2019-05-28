@@ -1,6 +1,7 @@
 package entity.mobile;
 
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.io.IOException;
 
 import entity.ControllerOrder;
@@ -21,7 +22,7 @@ public class Boulder extends MobileEntity{
 		// TODO Auto-generated constructor stub
 	}
 
-	private static  final Sprite sprite = new Sprite('P', "boulder.png");
+	private static  final Sprite sprite = new Sprite('P',  Sprite.world, new Rectangle(48, 0, 16, 16));
 	
 	
 

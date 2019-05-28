@@ -1,6 +1,7 @@
 package entity.mobile;
 
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.io.IOException;
 
 import entity.ControllerOrder;
@@ -12,12 +13,12 @@ import entity.Sprite;
 public class Charact extends MobileEntity{
 	
 
-	private static final Sprite sprite = new Sprite('C', "characterStandstill.png");
-	private static final Sprite spriteLeft = new Sprite('C', "characterRunningLeft.png");
-	private static final Sprite spriteRight = new Sprite('C', "characterRunningRight.png");
-	private static final Sprite spriteDown = new Sprite('C', "characterRunningDown.png");
-	private static final Sprite spriteUp = new Sprite('C', "characterRunningUp.png");
-	private static final Sprite spriteDeath = new Sprite('C', "characterDeath.png");
+	private static final Sprite sprite = new Sprite('C', Sprite.Chara, new Rectangle(0, 0, 16, 16));
+	private static final Sprite spriteLeft = new Sprite('C', Sprite.Chara, new Rectangle(0, 16, 16, 16));
+	private static final Sprite spriteRight = new Sprite('C', Sprite.Chara, new Rectangle(0, 48, 16, 16));
+	private static final Sprite spriteDown = new Sprite('C', Sprite.Chara, new Rectangle(0, 64, 16, 16));
+	private static final Sprite spriteUp = new Sprite('C', Sprite.Chara, new Rectangle(0, 32, 16, 16));
+	private static final Sprite spriteDeath = new Sprite('C', Sprite.Chara, new Rectangle(80, 80, 16, 16));
 	public Charact(int x, int y, IMap map) throws IOException {
 		super(x, y, sprite, map, PERMEABILITY.BLOCKING);
 		spriteLeft.loadImage();

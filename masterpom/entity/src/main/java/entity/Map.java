@@ -80,5 +80,6 @@ public class Map extends Observable implements IMap{
 		    
 		    return this.getOnTheMapXY(x, y).getPermeability();
 		  }
+	 
 	
 }
