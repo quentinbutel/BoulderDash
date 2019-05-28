@@ -1,48 +1,84 @@
 package entity;
 
-public class Map {
-	private String map;
-	private final  int width = 1536;
-	private final  int height = 768;
-	private int level;
-	private int diamondCount;
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Observable;
+
+import entity.mobile.Charact;
+import entity.mobile.MobileEntity;
+public class Map extends Observable implements IMap{
+
 	
-	public int getLevel() {
-		return level;
+	private int diamondCount = 0;
+	private IEntity[][] map;	
+	private ArrayList<MobileEntity> mEntity;
+	private Charact character;
+	
+	public Charact getCharacter() {
+		return character;
 	}
-	public void setLevel(int level) {
-		this.level = level;
+	public void setCharacter(Charact character) {
+		this.character = character;
 	}
+	
 	public int getDiamondCount() {
 		return diamondCount;
 	}
 	public void setDiamondCount(int diamondCount) {
 		this.diamondCount = diamondCount;
 	}
-	public String getMap() {
-		return map;
-	}
-	public  int getWidth() {
-		return width;
-	}
-	public  int getHeight() {
-		return height;
+
+	public Observable getObservable() {
+		return this;
 	}
 	
-	public Map(int level, String map) {
-		
+	
+	public Map(IEntity[][] map) {
+	this.map = map;
+	this.mEntity= new ArrayList<MobileEntity>();
 	}
 	
-	public Map() {
-		this(0, "");
-	}
 	
-	public Entity getOnTheMapXY(int x, int y) {
+	public IEntity getOnTheMapXY(int x, int y) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.map[x][y];
 	}
 	
-	public void setOnTheMapXY(Entity entity, int x, int y) {
-		
+	public void setOnTheMapXY(IEntity entity, int x, int y) {
+		this.map[x][y] = entity;
 	}
+	
+	
+	public void setMobHasChanged() {
+		this.notifyObservers();
+		this.hasChanged();
+	}
+	
+	public void add(MobileEntity mEntity) {
+		this.mEntity.add(mEntity);
+	}
+	public ArrayList<MobileEntity> getmEntity() {
+		return mEntity;
+	}
+	
+	public void addDiamond() {
+		this.diamondCount++;
+	}
+	
+	public void decreaseDiamond() {
+		this.diamondCount--;
+	}
+	 public PERMEABILITY getSquareIsOccupiedXY(final int x, final int y) {
+		    Point point = new Point(x, y);
+		    for(MobileEntity mEntity : this.getmEntity()) {
+		      if (mEntity.getPosition().equals(point))
+		        return mEntity.getPermeability();
+		    }
+		    
+		    if(this.getCharacter().getPosition().equals(point))
+		    	return this.getCharacter().getPermeability();
+		    
+		    return this.getOnTheMapXY(x, y).getPermeability();
+		  }
+	
 }

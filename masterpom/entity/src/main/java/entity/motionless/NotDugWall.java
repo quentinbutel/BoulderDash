@@ -8,7 +8,7 @@ class NotDugWall extends MotionLessEntity{
 	private static final Sprite sprite = new Sprite('D', "ground1.png");
 
 	protected NotDugWall() {
-		super(sprite, PERMEABILITY.MINEABLE);
+		super(sprite, PERMEABILITY.PENETRABLE);
 		// TODO Auto-generated constructor stub
 	}
 

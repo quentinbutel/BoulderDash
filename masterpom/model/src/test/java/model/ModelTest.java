@@ -23,9 +23,9 @@ public class ModelTest {
     }
 
     @Before
-    public void setUp() throws Exception {
+   /* public void setUp() throws Exception {
         this.model = new Model();
-    }
+    }*/
 
     @After
     public void tearDown() throws Exception {

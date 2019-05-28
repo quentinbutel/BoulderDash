@@ -6,30 +6,30 @@ public class MotionLessEntityFactory {
 	private static DugWall dugwall = new DugWall();
 	private static UnbreakableWall unbreakablewall = new UnbreakableWall();
 	private static MotionLessEntity[] motionlessEntity = {notdugwall, dugwall, unbreakablewall, exit};
-	public MotionLessEntity createExit() {
+	public static MotionLessEntity createExit() {
 		return exit;
 	}
 	
-	public MotionLessEntity createNotDugWall() {
+	public static MotionLessEntity createNotDugWall() {
 		return notdugwall;
 	}
 	
-	public MotionLessEntity createDugWall() {
+	public static MotionLessEntity createDugWall() {
 		return dugwall;
 	}
 	
-	public MotionLessEntity createUnbreakableWall() {
+	public static MotionLessEntity createUnbreakableWall() {
 		return unbreakablewall;
 	}
 	
 	
 	
-	public MotionLessEntity getFromDBSymbol(char symbol) {
+	public static  MotionLessEntity getFromDBSymbol(char symbol) {
 		 for (final MotionLessEntity motionlessEntity : motionlessEntity) {
 	            if (motionlessEntity.getSprite().getCharImage() == symbol) {
 	                return motionlessEntity;
 	       }
 		 }
-		return notdugwall;
+		return dugwall;
 	}
 }

@@ -1,4 +1,4 @@
-package contract;
+package entity;
 
 /**
  * The Enum ControllerOrder.

@@ -1,97 +1,75 @@
 package model;
 
-import java.sql.SQLException;
-import java.util.Observable;
+import java.io.IOException;
+
+import java.util.ArrayList;
+
 
 import contract.IModel;
-import entity.HelloWorld;
-import entity.Map;
+import entity.IMap;
+
+import entity.mobile.Charact;
+import entity.mobile.MobileEntity;
+
+
 
 /**
  * The Class Model.
  *
  * @author Jean-Aymeric Diet
  */
-public final class Model extends Observable implements IModel {
+public final class Model implements IModel {
 
 	/** The helloWorld. */
-	private Map map;
-
+	private IMap map;
+	
+	private Charact character;
+private DAOMap dao;
 	/**
 	 * Instantiates a new model.
+	 * @throws IOException 
 	 */
-	public Model() {
-		this.map = new Map();
+	public Model(int Level) throws IOException {
+		super();
+		
+		this.setMap(dao.find(Level));
+		this.setCharacter(new Charact(1, 1, map));
 	}
 
-	/**
-     * Gets the hello world.
-     *
-     * @return the hello world
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage()
-	 */
 	
-	public Map getMap() {
+	
+
+	public IMap getMap() {
 		return map;
 	}
 
-	public void setMap(Map map) {
+
+
+
+	public void setMap(IMap map) {
 		this.map = map;
-		this.notifyObservers();
-		this.hasChanged();
 	}
 
-	/**
-     * Sets the hello world.
-     *
-     * @param helloWorld
-     *            the new hello world
-     */
-	
 
-	
+	public Charact getCharacter() {
+		return character;
+	}
 
-	/**
-     * Load hello world.
-     *
-     * @param code
-     *            the code
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage(java.lang.String)
-	 */
-	
-	/**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getObservable()
-	 */
-	public Observable getObservable() {
-		return this;
+	public void setCharacter(Charact character) {
+		this.character = character;
 	}
 
 	
-	public void loadmap(int key) {
-		try {
-			final DAOMap daomap = new DAOMap(DBConnection.getInstance().getConnection());
-			this.setMap(daomap.find(key));
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
+
+	public void moveEntity() {
+		ArrayList<MobileEntity> mEntity = new ArrayList<>(this.getMap().getmEntity());
 		
-	}
+		for (MobileEntity Mentity : mEntity) {
+			Mentity.strategy();
+		}
 
-	
+		if (this.getCharacter().isCrashed())
+			this.getCharacter().die();
+	}
 
 }	

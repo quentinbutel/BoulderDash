@@ -1,9 +1,10 @@
 package controller;
 
-import contract.ControllerOrder;
+
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import entity.ControllerOrder;
 
 /**
  * The Class Controller.
@@ -61,6 +62,12 @@ public final class Controller implements IController {
 		this.model = model;
 	}
 
+	@Override
+	public void orderPerform(ControllerOrder controllerOrder) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/**
      * Order perform.
      *
@@ -72,23 +79,6 @@ public final class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
-		switch (controllerOrder) {
-			case Up:
-				//this.model.loadHelloWorld("GB");
-				break;
-			case Down:
-				//this.model.loadHelloWorld("FR");
-				break;
-			case Right:
-				//this.model.loadHelloWorld("DE");
-				break;
-			case Left:
-				//this.model.loadHelloWorld("ID");
-				break;
-			default:
-				break;
-		}
-	}
+	
 
 }

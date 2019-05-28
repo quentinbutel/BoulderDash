@@ -1,10 +1,12 @@
 package contract;
 
 
-import java.util.Observable;
 
 
-import entity.Map;
+import entity.IMap;
+
+import entity.mobile.Charact;
+
 
 /**
  * The Interface IModel.
@@ -18,20 +20,8 @@ public interface IModel {
 	 *
 	 * @return the helloworld entity
 	 */
-	Map getMap();
+	IMap getMap();
+	public Charact getCharacter();
+	
 
-	/**
-	 * Load the message.
-	 *
-	 * @param code
-	 *          the code
-	 */
-	void loadmap(final int key);
-
-	/**
-	 * Gets the observable.
-	 *
-	 * @return the observable
-	 */
-	Observable getObservable();
 }

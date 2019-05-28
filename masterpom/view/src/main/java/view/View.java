@@ -4,10 +4,11 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.SwingUtilities;
 
-import contract.ControllerOrder;
+
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import entity.ControllerOrder;
 
 /**
  * The Class View.
