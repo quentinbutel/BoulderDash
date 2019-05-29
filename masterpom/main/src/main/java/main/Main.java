@@ -27,7 +27,7 @@ public abstract class Main {
      * @throws IOException 
      */
     public static void main(final String[] args) throws IOException {
-        final Model model = new Model(5);
+        final Model model = new Model(4);
         
        /* final View view = new View(model);
         final Controller controller = new Controller(view, model);

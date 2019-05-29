@@ -36,8 +36,7 @@ public final class Model implements IModel {
 		this.setMap(DAOMap.find(Level));
 		this.setCharacter(new Charact(1, 1, map));
 		this.getMap().toString();
-		System.out.println();
-		System.out.println(this.getMap().getOnTheMapXY(5,2).getSprite().getCharImage());
+		
 	}
 
 	

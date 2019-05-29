@@ -30,7 +30,7 @@ public class DAOMap{
 	public static  IMap find(int id) throws IOException {
 		IMap map1 = null;
 		try {
-			final String sql = "Select * from level" + id;
+			final String sql = "call level" + id;
 			final CallableStatement call =prepareCall(sql);
 		
 			call.execute();
