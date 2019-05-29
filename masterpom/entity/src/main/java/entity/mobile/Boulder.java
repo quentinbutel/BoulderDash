@@ -22,7 +22,7 @@ public class Boulder extends MobileEntity{
 		// TODO Auto-generated constructor stub
 	}
 
-	private static  final Sprite sprite = new Sprite('P',  Sprite.world, new Rectangle(48, 0, 16, 16));
+	private static  final Sprite sprite = new Sprite('B',  Sprite.world, 48, 0);
 	
 	
 
@@ -59,7 +59,7 @@ public class Boulder extends MobileEntity{
 
 
 	@Override
-	protected boolean entityAllowsmvt(ControllerOrder choice) {
+	public boolean entityAllowsmvt(ControllerOrder choice) {
 		Point posAfter = null;
 		switch (choice) {
 		case Up : 
@@ -89,6 +89,14 @@ public class Boulder extends MobileEntity{
 	
 	public  void strategy() {
 		Boulder.strategy.strategy(this, this.getMap());
+		
+	}
+
+
+
+	@Override
+	public void removeEntity() {
+		// TODO Auto-generated method stub
 		
 	}
 }

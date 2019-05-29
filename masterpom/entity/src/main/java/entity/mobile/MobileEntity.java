@@ -19,7 +19,7 @@ import entity.strategy.IStrategy;
 
 
 
-public abstract  class MobileEntity extends Entity{
+public abstract  class MobileEntity extends Entity implements IMobile{
 	  private boolean alive =true;
 	  private Point position;
 	  private IMap map;
@@ -107,7 +107,7 @@ public abstract  class MobileEntity extends Entity{
 	}
 	
 	public boolean isCrashed() {
-		for (MobileEntity mEntity: this.getMap().getmEntity()) {
+		for (IMobile mEntity: this.getMap().getmEntity()) {
 			if (mEntity.getSprite().getCharImage() == 'O' || mEntity.getSprite().getCharImage() == 'V') {
 				if (mEntity.getPosition().x == this.getPosition().x	&& mEntity.getPosition().y == this.getPosition().y - 1 && mEntity.isFalling()) {
 					return true;
@@ -142,7 +142,7 @@ public abstract  class MobileEntity extends Entity{
 		return this.mapAllowsMvt(choice)&&this.entityAllowsmvt(choice);
 		
 	}
-	protected boolean mapAllowsMvt(ControllerOrder choice) {
+	public boolean mapAllowsMvt(ControllerOrder choice) {
 		switch (choice) {
 		case Up : 
 			return this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1).getPermeability() == PERMEABILITY.PENETRABLE;
@@ -161,9 +161,9 @@ public abstract  class MobileEntity extends Entity{
 		}
 	}
 	
-	protected boolean entityAllowsmvt(ControllerOrder choice) {
+	public boolean entityAllowsmvt(ControllerOrder choice) {
 		Point posAfter = this.getPositionAfterOrder(choice);
-		for (MobileEntity mEntity: this.getMap().getmEntity()) {
+		for (IMobile mEntity: this.getMap().getmEntity()) {
 			if (mEntity.getPosition().equals(posAfter)) {
 				if (mEntity.getPermeability() != PERMEABILITY.PENETRABLE) {
 					return false;
@@ -175,7 +175,7 @@ public abstract  class MobileEntity extends Entity{
 		return true;
 	}
 	
-	protected Point getPositionAfterOrder(ControllerOrder choice) {
+	public Point getPositionAfterOrder(ControllerOrder choice) {
 		Point posAfter = null;
 			switch (choice) {
 			case Up : 

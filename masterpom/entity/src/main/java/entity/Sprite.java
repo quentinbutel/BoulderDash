@@ -16,14 +16,34 @@ public class Sprite {
 	private BufferedImage buffer;
 	public static BufferedImage Chara;
 	public static BufferedImage world;
-	private Rectangle part;
+	
+	private int partX;
+	private int partY;
 	
 	
-public Sprite(char character, final BufferedImage buf, final Rectangle part) {
+public Sprite(char character, final BufferedImage buf, final int partX, final int partY) {
 		this.setCharImage(character);
 		this.buffer = buf;
-		this.part = part;
+		this.setPartX(partX);
+		this.setPartY(partX);
+
 	}
+
+public int getPartX() {
+	return partX;
+}
+
+public void setPartX(int partX) {
+	this.partX = partX;
+}
+
+public int getPartY() {
+	return partY;
+}
+
+public void setPartY(int partY) {
+	this.partY = partY;
+}
 
 public static void loadSpriteSheet() {
 	try {
@@ -65,7 +85,8 @@ public static void loadSpriteSheet() {
 	
 	
 	public void loadImage() throws IOException {
-		this.setImage(buffer.getSubimage(part.x, part.y, part.width, part.height));
+		this.setImage(buffer.getSubimage(partX, partY, 16, 16));
+		this.getImage().getScaledInstance(48, 48, Image.SCALE_DEFAULT);
 	}
 	
 	public boolean isImageLoaded() {

@@ -9,6 +9,7 @@ import contract.IModel;
 import entity.IMap;
 import entity.Sprite;
 import entity.mobile.Charact;
+import entity.mobile.IMobile;
 import entity.mobile.MobileEntity;
 
 
@@ -24,7 +25,7 @@ public final class Model implements IModel {
 	private IMap map;
 	
 	private Charact character;
-private DAOMap dao;
+
 	/**
 	 * Instantiates a new model.
 	 * @throws IOException 
@@ -34,7 +35,9 @@ private DAOMap dao;
 		Sprite.loadSpriteSheet();
 		this.setMap(DAOMap.find(Level));
 		this.setCharacter(new Charact(1, 1, map));
-		
+		this.getMap().toString();
+		System.out.println();
+		System.out.println(this.getMap().getOnTheMapXY(5,2).getSprite().getCharImage());
 	}
 
 	
@@ -63,9 +66,9 @@ private DAOMap dao;
 	
 
 	public void moveEntity() {
-		ArrayList<MobileEntity> mEntity = new ArrayList<>(this.getMap().getmEntity());
+		ArrayList<IMobile> mEntity = new ArrayList<>(this.getMap().getmEntity());
 		
-		for (MobileEntity Mentity : mEntity) {
+		for (IMobile Mentity : mEntity) {
 			Mentity.strategy();
 		}
 

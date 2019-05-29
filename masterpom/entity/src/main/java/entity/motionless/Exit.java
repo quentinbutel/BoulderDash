@@ -8,7 +8,7 @@ import entity.Sprite;
 class Exit extends MotionLessEntity{
 	
 	private boolean isOpened = false;
-	private static final Sprite sprite = new Sprite('S', Sprite.world, new Rectangle(96, 0, 16, 16));
+	private static final Sprite sprite = new Sprite('S', Sprite.world, 96, 0);
 
 	public boolean isOpened() {
 		return isOpened;

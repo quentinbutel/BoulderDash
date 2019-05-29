@@ -3,6 +3,7 @@ package entity.strategy;
 import entity.ControllerOrder;
 import entity.IMap;
 import entity.PERMEABILITY;
+import entity.mobile.IMobile;
 import entity.mobile.MobileEntity;
 
 public abstract class FallingStrategy implements IStrategy{
@@ -12,7 +13,7 @@ public abstract class FallingStrategy implements IStrategy{
 		} else {
 
 			// if not, check if he can fall on the sides
-			for (MobileEntity mEntities : map.getmEntity()) {
+			for (IMobile mEntities : map.getmEntity()) {
 
 				// if there is a mobile under mobile
 				if (mEntity.getPosition().y == mEntities.getPosition().y - 1 && mEntity.getPosition().x == mEntities.getPosition().x) {

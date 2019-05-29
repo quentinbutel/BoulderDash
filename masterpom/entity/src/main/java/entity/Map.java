@@ -1,18 +1,30 @@
 package entity;
 
 import java.awt.Point;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 
 import entity.mobile.Charact;
+import entity.mobile.IMobile;
 import entity.mobile.MobileEntity;
 public class Map extends Observable implements IMap{
 
-	
+	private final  static int width = 32;
+	private final  static int height = 16;
+	public static int getWidth() {
+		return width;
+	}
+	public static int getHeight() {
+		return height;
+	}
+
 	private int diamondCount = 0;
 	private IEntity[][] map;	
-	private ArrayList<MobileEntity> mEntity;
+	private ArrayList<IMobile> mEntity;
 	private Charact character;
+	private int level;
+	
 	
 	public Charact getCharacter() {
 		return character;
@@ -33,9 +45,10 @@ public class Map extends Observable implements IMap{
 	}
 	
 	
-	public Map(IEntity[][] map) {
+	public Map(IEntity[][] map, int level) {
 	this.map = map;
-	this.mEntity= new ArrayList<MobileEntity>();
+	this.mEntity= new ArrayList<IMobile>();
+	this.level=level;
 	}
 	
 	
@@ -54,10 +67,10 @@ public class Map extends Observable implements IMap{
 		this.hasChanged();
 	}
 	
-	public void add(MobileEntity mEntity) {
+	public void add(IMobile mEntity) {
 		this.mEntity.add(mEntity);
 	}
-	public ArrayList<MobileEntity> getmEntity() {
+	public ArrayList<IMobile> getmEntity() {
 		return mEntity;
 	}
 	
@@ -70,7 +83,7 @@ public class Map extends Observable implements IMap{
 	}
 	 public PERMEABILITY getSquareIsOccupiedXY(final int x, final int y) {
 		    Point point = new Point(x, y);
-		    for(MobileEntity mEntity : this.getmEntity()) {
+		    for(IMobile mEntity : this.getmEntity()) {
 		      if (mEntity.getPosition().equals(point))
 		        return mEntity.getPermeability();
 		    }
@@ -80,6 +93,22 @@ public class Map extends Observable implements IMap{
 		    
 		    return this.getOnTheMapXY(x, y).getPermeability();
 		  }
+	 
+	 public final String toString() {
+		 try {
+		    for (int y = 0; y < Map.getHeight(); y++) {
+		      for (int x = 0; x < Map.getWidth(); x++) {
+		        System.out.print(this.getOnTheMapXY(x, y).getSprite().getCharImage());
+		      }
+		    
+		    }
+		  
+		 }catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 return "fin";
+	  }
 	 
 	
 }

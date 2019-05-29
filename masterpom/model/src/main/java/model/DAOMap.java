@@ -17,47 +17,32 @@ import entity.motionless.MotionLessEntityFactory;
 
 public class DAOMap{
 
-	private final  static int width = 33;
-	private final  static int height = 17;
+	private static int x = 0;
+	private static int y = 0;
 	private final Connection connection;
 	public DAOMap(Connection connection) throws SQLException {
 		this.connection = connection;
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	public boolean create(IMap map) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	
-	public boolean delete(IMap map) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	
-	public boolean update(IMap map) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	
 	public static  IMap find(int id) throws IOException {
-		IMap map1;
+		IMap map1 = null;
 		try {
-			final String sql = "{call MapsById(?)}";
+			final String sql = "Select * from level" + id;
 			final CallableStatement call =prepareCall(sql);
-			call.setInt(1, id);
+		
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				System.out.println(resultSet.getString("map"));
-				map1 = new Map(new IEntity[width][height]);
-				DAOMap.setmEntityOnMap(resultSet, map1);
-			}
-			resultSet.close();
+			/*while (resultSet.next()) {
+				//System.out.print(resultSet.getString("item"));
+				 map1 = setmEntityOnMap(resultSet, id);
+				
+				//DAOMap.setmEntityOnMap(resultSet, id);
+			}*/
+			map1 = setmEntityOnMap(resultSet, id);
+			return map1;
 			
 		} catch (final SQLException e) {
 			e.printStackTrace();
@@ -70,28 +55,37 @@ public class DAOMap{
 		return connection;
 	}
 	
-	public static  void setmEntityOnMap(ResultSet result, IMap map1) throws SQLException, IOException {
-		int currentX = 0;
-		int currentY = 0;
+	public static  IMap setmEntityOnMap(ResultSet result, int level) throws SQLException, IOException {
 		
-		for (char c : result.getString("map").toCharArray()) {
-			map1.setOnTheMapXY(MotionLessEntityFactory.getFromDBSymbol(c), currentX, currentY);
+		IMap map1 = new Map(new IEntity[Map.getWidth()][Map.getHeight()], level);
+		while (result.next()) {
+		for (char c : result.getString("item").toCharArray()) {
+	
+			//for (int y = 0; y < Map.getHeight(); y++) {
+				//for (int x = 0; x < Map.getWidth(); x++) {
+			if (x == Map.getWidth()) {
+				x = 0;
+				y++;
+			}
+				
 			
-			if (c =='P') {
-				map1.add(new Boulder(currentX, currentY, map1));
-			}
-			else if(c =='A') {
-				map1.add(new Diamond(currentX, currentY, map1));
-				map1.addDiamond();
-			}
-			currentX++;
+					map1.setOnTheMapXY(MotionLessEntityFactory.getFromDBSymbol(c), x, y);
+					
+					if (c =='B') {
+						map1.add(new Boulder(x, y, map1));
+					}
+					else if(c =='D') {
+						map1.add(new Diamond(x, y, map1));
+						map1.addDiamond();
+					}
+					x++;
+					
+				//}
+			//}
 			
-			if (currentX % width == 0 && currentX != 0) {
-				currentX = 0;
-				currentY++;
-			}
 		}
-		
+		}
+		return map1;
 
 	}
 	public static CallableStatement prepareCall(final String query) throws SQLException {

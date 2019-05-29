@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import entity.mobile.Charact;
+import entity.mobile.IMobile;
 import entity.mobile.MobileEntity;
 
 public interface IMap {
 	public IEntity getOnTheMapXY(int x, int y);
 	public int getDiamondCount();
-	public void add(MobileEntity mEntity);
+	public void add(IMobile mEntity);
 	public Charact getCharacter();
-	public ArrayList<MobileEntity> getmEntity();
+	public ArrayList<IMobile> getmEntity();
 	public Observable getObservable();
 	public void addDiamond();
 	public void decreaseDiamond();

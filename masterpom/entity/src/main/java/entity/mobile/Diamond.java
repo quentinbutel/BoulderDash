@@ -2,6 +2,7 @@ package entity.mobile;
 import java.awt.Rectangle;
 import java.io.IOException;
 
+import entity.ControllerOrder;
 import entity.IMap;
 import entity.Map;
 
@@ -19,7 +20,7 @@ public class Diamond extends MobileEntity{
 		// TODO Auto-generated constructor stub
 	}
 
-	private static final Sprite sprite = new Sprite('A', Sprite.world, new Rectangle(64, 0, 16, 16));
+	private static final Sprite sprite = new Sprite('D', Sprite.world, 64, 0);
 
 	@Override
 	public void moveDown() {
@@ -47,6 +48,14 @@ public class Diamond extends MobileEntity{
 	
 	public void strategy() {
 		Diamond.strategy.strategy(this, this.getMap());
+	}
+
+	
+
+	@Override
+	public void removeEntity() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
