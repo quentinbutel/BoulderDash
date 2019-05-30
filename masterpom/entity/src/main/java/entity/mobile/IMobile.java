@@ -1,11 +1,13 @@
 package entity.mobile;
 
 import java.awt.Point;
+import java.io.IOException;
 
 import entity.ControllerOrder;
 import entity.IEntity;
+import test.IPawn;
 
-public interface IMobile extends IEntity{
+public interface IMobile extends IEntity, IPawn{
 	public int getX();
 	public int getY();
 	public void setX(int x);

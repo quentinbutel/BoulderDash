@@ -7,6 +7,9 @@ package main;
 
 import java.io.IOException;
 
+import contract.IController;
+import contract.IModel;
+import contract.IView;
 import controller.Controller;
 import entity.ControllerOrder;
 import model.Model;
@@ -25,15 +28,21 @@ public abstract class Main {
      * @param args
      *            the arguments
      * @throws IOException 
+     * @throws InterruptedException 
      */
-    public static void main(final String[] args) throws IOException {
-        final Model model = new Model(4);
-        
-       /* final View view = new View(model);
-        final Controller controller = new Controller(view, model);
+    public static void main(final String[] args) throws IOException, InterruptedException {
+        final IModel model = new Model(4);
+      /* final View view = new View(model.getMap(), model.getCharacter(), model.getMap().getmEntity());
+        final IController controller = new Controller(view, model);
         view.setController(controller);
+       try {
+        	controller.control();
+            controller.play();
+        } catch (InterruptedException e) {
+        	System.out.println(e.getMessage());
+			e.printStackTrace();
+		}*/
+		
 
-        controller.control();
-        controller.orderPerform(ControllerOrder.None);*/
     }
 }

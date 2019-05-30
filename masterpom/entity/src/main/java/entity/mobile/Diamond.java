@@ -20,7 +20,7 @@ public class Diamond extends MobileEntity{
 		// TODO Auto-generated constructor stub
 	}
 
-	private static final Sprite sprite = new Sprite('D', Sprite.world, 64, 0);
+	private static final Sprite sprite = new Sprite('D', Sprite.world, new Rectangle (64, 0, 16, 16));
 
 	@Override
 	public void moveDown() {

@@ -1,5 +1,12 @@
 package contract;
 
+import java.awt.Rectangle;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import entity.IMap;
+import entity.mobile.IMobile;
+
 /**
  * The Interface IView.
  *
@@ -14,4 +21,6 @@ public interface IView {
 	 *          the message
 	 */
 	void printMessage(final String message);
+	//public void updateBoardFrame();
+	
 }

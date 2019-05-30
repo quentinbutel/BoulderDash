@@ -1,4 +1,4 @@
-package fr.exia.showboard;
+package test;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;

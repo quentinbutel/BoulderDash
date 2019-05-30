@@ -24,7 +24,7 @@ public final class Model implements IModel {
 	/** The helloWorld. */
 	private IMap map;
 	
-	private Charact character;
+	private IMobile character;
 
 	/**
 	 * Instantiates a new model.
@@ -34,8 +34,11 @@ public final class Model implements IModel {
 		super();
 		Sprite.loadSpriteSheet();
 		this.setMap(DAOMap.find(Level));
-		this.setCharacter(new Charact(1, 1, map));
-		this.getMap().toString();
+		this.setCharacter(new Charact(2, 1, this.map));
+		System.out.println();
+		System.out.println(this.getMap().toString());
+		System.out.println();
+		
 		
 	}
 
@@ -54,11 +57,11 @@ public final class Model implements IModel {
 	}
 
 
-	public Charact getCharacter() {
-		return character;
+	public IMobile getCharacter() {
+		return this.character;
 	}
 
-	public void setCharacter(Charact character) {
+	public void setCharacter(IMobile character) {
 		this.character = character;
 	}
 

@@ -5,13 +5,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 
-import entity.mobile.Charact;
+
 import entity.mobile.IMobile;
-import entity.mobile.MobileEntity;
+
 public class Map extends Observable implements IMap{
 
 	private final  static int width = 32;
+	
 	private final  static int height = 16;
+	private int diamondCount = 0;
+	private IEntity[][] map;	
+	private ArrayList<IMobile> mEntity;
+	private IMobile character;
+	private int level;
 	public static int getWidth() {
 		return width;
 	}
@@ -19,17 +25,13 @@ public class Map extends Observable implements IMap{
 		return height;
 	}
 
-	private int diamondCount = 0;
-	private IEntity[][] map;	
-	private ArrayList<IMobile> mEntity;
-	private Charact character;
-	private int level;
 	
 	
-	public Charact getCharacter() {
+	
+	public IMobile getCharacter() {
 		return character;
 	}
-	public void setCharacter(Charact character) {
+	public void setCharacter(IMobile character) {
 		this.character = character;
 	}
 	
@@ -63,8 +65,9 @@ public class Map extends Observable implements IMap{
 	
 	
 	public void setMobHasChanged() {
+		this.setChanged();
 		this.notifyObservers();
-		this.hasChanged();
+	
 	}
 	
 	public void add(IMobile mEntity) {
@@ -95,20 +98,21 @@ public class Map extends Observable implements IMap{
 		  }
 	 
 	 public final String toString() {
-		 try {
+		 
+			 String temp = new String();
 		    for (int y = 0; y < Map.getHeight(); y++) {
 		      for (int x = 0; x < Map.getWidth(); x++) {
-		        System.out.print(this.getOnTheMapXY(x, y).getSprite().getCharImage());
+		    	  temp += map[x][y].getSprite().getCharImage();
+		  //      System.out.print(this.getOnTheMapXY(x, y).getSprite().getCharImage());
 		      }
+		      temp += '\n';
 		    
 		    }
 		  
-		 }catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		 return "fin";
+		 
+		 return temp;
 	  }
+	
 	 
 	
 }

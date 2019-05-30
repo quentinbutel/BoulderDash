@@ -11,12 +11,12 @@ import entity.PERMEABILITY;
 import entity.Sprite;
 
 public class Charact extends MobileEntity{
-	private static final Sprite sprite = new Sprite('C', Sprite.Chara, 0, 0);
-	private static final Sprite spriteLeft = new Sprite('C', Sprite.Chara, 0, 16 );
-	private static final Sprite spriteRight = new Sprite('C', Sprite.Chara, 0, 48);
-	private static final Sprite spriteDown = new Sprite('C', Sprite.Chara, 0, 64);
-	private static final Sprite spriteUp = new Sprite('C', Sprite.Chara, 0, 32);
-	private static final Sprite spriteDeath = new Sprite('C', Sprite.Chara, 80, 80);
+	private static final Sprite sprite = new Sprite('C', Sprite.Chara,new Rectangle (0, 0, 16, 16));
+	private static final Sprite spriteLeft = new Sprite('C', Sprite.Chara, new Rectangle (0, 16, 16, 16));
+	private static final Sprite spriteRight = new Sprite('C', Sprite.Chara,new Rectangle (0, 48, 16, 16));
+	private static final Sprite spriteDown = new Sprite('C', Sprite.Chara, new Rectangle (0, 64, 16, 16));
+	private static final Sprite spriteUp = new Sprite('C', Sprite.Chara, new Rectangle (0, 0, 32, 16));
+	private static final Sprite spriteDeath = new Sprite('C', Sprite.Chara, new Rectangle (80, 80, 16, 16));
 	public Charact(int x, int y, IMap map) throws IOException {
 		super(x, y, sprite, map, PERMEABILITY.BLOCKING);
 		spriteLeft.loadImage();
@@ -59,12 +59,11 @@ public class Charact extends MobileEntity{
 		// TODO Auto-generated method stub
 		return super.isCrashed();
 	}
-	public boolean canMove(ControllerOrder choice) {
+	public boolean entityAllowsmvt(final ControllerOrder choice) {
 		Boolean push = false;
 		switch (choice) {
 		case Right:
-			push = this.getMap().getOnTheMapXY(getX() + 2, getY())
-					.getPermeability() == PERMEABILITY.PENETRABLE;
+			push = this.getMap().getOnTheMapXY(getX() + 2, getY()).getPermeability() == PERMEABILITY.PENETRABLE;
 			if (push) {
 				for (IMobile mEntity : this.getMap().getmEntity()) {
 					if (mEntity.getPosition().x == getX() + 2 && mEntity.getPosition().y == getY()
@@ -76,8 +75,7 @@ public class Charact extends MobileEntity{
 			}
 			break;
 		case Left:
-			push = this.getMap().getOnTheMapXY(getX() - 2, getY())
-					.getPermeability() == PERMEABILITY.PENETRABLE;
+			push = this.getMap().getOnTheMapXY(getX() - 2, getY()).getPermeability() == PERMEABILITY.PENETRABLE;
 			if (push) {
 				for (IMobile mEntity : this.getMap().getmEntity()) {
 					if (mEntity.getPosition().x == getX() - 2 && mEntity.getPosition().y == getY()
@@ -110,7 +108,7 @@ public class Charact extends MobileEntity{
 				} else if (mEntity.getPermeability() == PERMEABILITY.MINEABLE) {
 					// Player stepped on a diamond
 
-					mEntity.removeEntity();;
+					mEntity.removeEntity();
 					this.getMap().decreaseDiamond();
 
 					return true;
@@ -119,7 +117,7 @@ public class Charact extends MobileEntity{
 		}
 		return true;
 	}
-	public boolean mapAllowsMvt(ControllerOrder choice) {
+	public boolean mapAllowsMvt(final ControllerOrder choice) {
 		switch (choice) {
 		case Up : 
 			return this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1).getPermeability() != PERMEABILITY.BLOCKING;
@@ -134,9 +132,9 @@ public class Charact extends MobileEntity{
 				return true;
 		}
 	}
-	public boolean entityAllowsmvt(ControllerOrder choice) {
+	public boolean canMove(final ControllerOrder choice) {
 		// TODO Auto-generated method stub
-		return super.entityAllowsmvt(choice);
+		return this.entityAllowsmvt(choice) && this.mapAllowsMvt(choice);
 	}
 	@Override
 	public void removeEntity() {

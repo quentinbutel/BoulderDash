@@ -60,7 +60,7 @@ public class DAOMap{
 		IMap map1 = new Map(new IEntity[Map.getWidth()][Map.getHeight()], level);
 		while (result.next()) {
 		for (char c : result.getString("item").toCharArray()) {
-	
+
 			//for (int y = 0; y < Map.getHeight(); y++) {
 				//for (int x = 0; x < Map.getWidth(); x++) {
 			if (x == Map.getWidth()) {

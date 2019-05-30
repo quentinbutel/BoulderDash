@@ -1,4 +1,4 @@
-package fr.exia.showboard;
+package test;
 
 import java.awt.Color;
 import java.awt.Dimension;

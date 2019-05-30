@@ -16,16 +16,17 @@ public class Sprite {
 	private BufferedImage buffer;
 	public static BufferedImage Chara;
 	public static BufferedImage world;
-	
+	private Rectangle part;
 	private int partX;
 	private int partY;
 	
 	
-public Sprite(char character, final BufferedImage buf, final int partX, final int partY) {
+public Sprite(char character, final BufferedImage buf, final Rectangle part) {
 		this.setCharImage(character);
 		this.buffer = buf;
-		this.setPartX(partX);
-		this.setPartY(partX);
+		this.part=part;
+	//	this.setPartX(partX);
+		//this.setPartY(partX);
 
 	}
 
@@ -47,8 +48,10 @@ public void setPartY(int partY) {
 
 public static void loadSpriteSheet() {
 	try {
+		int randomNum = (int) (Math.random() * 6);
 		Sprite.Chara= ImageIO.read(new File("C:\\Users\\qbute\\Documents\\Projet\\Projet 5\\image\\74336.png"));
 		Sprite.world= ImageIO.read(new File("C:\\Users\\qbute\\Documents\\Projet\\Projet 5\\image\\74359.png"));
+		
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -85,8 +88,8 @@ public static void loadSpriteSheet() {
 	
 	
 	public void loadImage() throws IOException {
-		this.setImage(buffer.getSubimage(partX, partY, 16, 16));
-		this.getImage().getScaledInstance(48, 48, Image.SCALE_DEFAULT);
+		this.setImage(buffer.getSubimage(part.x, part.y, part.width, part.height));
+		//this.getImage().getScaledInstance(48, 48, Image.SCALE_DEFAULT);
 	}
 	
 	public boolean isImageLoaded() {
@@ -95,6 +98,8 @@ public static void loadSpriteSheet() {
 	}
 	
 	public void setImageLoaded(boolean isImageLoaded) {
-		
+		this.imageLoaded = isImageLoaded;
 	}
+	
+	
 }

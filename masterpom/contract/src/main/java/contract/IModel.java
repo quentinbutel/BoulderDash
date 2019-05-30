@@ -6,6 +6,7 @@ package contract;
 import entity.IMap;
 
 import entity.mobile.Charact;
+import entity.mobile.IMobile;
 
 
 /**
@@ -20,8 +21,8 @@ public interface IModel {
 	 *
 	 * @return the helloworld entity
 	 */
-	IMap getMap();
-	public Charact getCharacter();
-	
+	public IMap getMap();
+	public IMobile getCharacter();
+	public void moveEntity();
 
 }

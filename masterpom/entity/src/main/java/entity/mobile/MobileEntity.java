@@ -134,7 +134,8 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 		this.map = map;
 	}
 	
-	public void removemEntity() {
+	public void removeEntity()  {
+		this.setPosition(new Point(-1, 1));
 		this.getMap().getmEntity().remove(this);
 		}
 

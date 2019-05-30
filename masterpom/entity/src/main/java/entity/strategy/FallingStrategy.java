@@ -4,10 +4,10 @@ import entity.ControllerOrder;
 import entity.IMap;
 import entity.PERMEABILITY;
 import entity.mobile.IMobile;
-import entity.mobile.MobileEntity;
+
 
 public abstract class FallingStrategy implements IStrategy{
-	public void strategy(MobileEntity mEntity, IMap map) {
+	public void strategy(IMobile mEntity, IMap map) {
 		if (mEntity.canMove(ControllerOrder.Down)) {
 			mEntity.moveDown();
 		} else {

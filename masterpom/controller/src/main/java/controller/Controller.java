@@ -3,20 +3,40 @@ package controller;
 
 import contract.IController;
 import contract.IModel;
+
 import contract.IView;
 import entity.ControllerOrder;
 
 /**
  * The Class Controller.
  */
-public final class Controller implements IController {
+public final class Controller implements IController{
 
 	/** The view. */
 	private IView		view;
+	private static final int thread = 100;
 
 	/** The model. */
 	private IModel	model;
+	private ControllerOrder order = ControllerOrder.None;
 
+	public ControllerOrder getOrder() {
+		return this.order;
+	}
+
+	public void setOrder(ControllerOrder order) {
+		this.order = order;
+	}
+
+	public IView getView() {
+		return view;
+	}
+
+	public IModel getModel() {
+		return model;
+	}
+
+	
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -28,6 +48,7 @@ public final class Controller implements IController {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
+		this.clearOrder();
 	}
 
 	/**
@@ -39,7 +60,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les flèches 'Z', 'S', 'D' ou 'Q', pour déplacer Hello world dans la langue d votre choix.");
+		this.view.printMessage("Appuyer sur les flèches directionnelles pour vous déplacer dans le jeu.");
 	}
 
 	/**
@@ -65,8 +86,64 @@ public final class Controller implements IController {
 	@Override
 	public void orderPerform(ControllerOrder controllerOrder) {
 		// TODO Auto-generated method stub
+		this.setOrder(controllerOrder);
 		
 	}
+	
+	private void clearOrder() {
+		this.order=ControllerOrder.None;
+	}
+	
+	public final void play() throws InterruptedException{
+		this.getModel().getMap().setCharacter(this.getModel().getCharacter());
+		
+		while (this.getModel().getCharacter().isAlive()) {
+			Thread.sleep(thread);
+			if (this.getModel().getCharacter().canMove(this.getOrder())) {
+			switch (this.getOrder()) {
+				case Right :
+					this.getModel().getCharacter().moveRight();
+					
+					break;
+				case Left : 
+					this.getModel().getCharacter().moveLeft();
+					
+					break;
+				case Up : 
+					this.getModel().getCharacter().moveUp();
+					
+					break;
+				case Down : 
+					this.getModel().getCharacter().moveDown();
+					
+					break;
+				case None : 
+					default : this.getModel().getCharacter().immobile();
+					
+					break;
+				}
+		}
+			
+			
+		this.getModel().moveEntity();
+	System.out.println(this.getModel().getMap().getDiamondCount());
+			this.clearOrder();
+			//this.getView().updateBoardFrame();
+	
+			if (this.getModel().getMap().getDiamondCount() <= 0) {
+				this.getView().printMessage("You have won!");
+				System.exit(0);
+			}
+		}
+		
+		this.getView().printMessage("Game Over");
+		System.exit(0);
+	}
+
+	
+
+
+
 
 	/**
      * Order perform.

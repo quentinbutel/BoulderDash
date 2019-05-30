@@ -22,7 +22,7 @@ public class Boulder extends MobileEntity{
 		// TODO Auto-generated constructor stub
 	}
 
-	private static  final Sprite sprite = new Sprite('B',  Sprite.world, 48, 0);
+	private static  final Sprite sprite = new Sprite('B',  Sprite.world,new Rectangle (48, 0, 16, 16));
 	
 	
 

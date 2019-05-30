@@ -4,4 +4,4 @@
  *
  */
 
-package fr.exia.showboard;
+package test;

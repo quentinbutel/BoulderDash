@@ -2,7 +2,11 @@ package entity;
 
 import java.awt.Image;
 
-public interface IEntity {
+import test.ISquare;
+
+
+
+public interface IEntity extends ISquare{
 	public Sprite getSprite();
 	public PERMEABILITY getPermeability();
 	public Image getImage();
