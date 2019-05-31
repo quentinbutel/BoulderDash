@@ -74,8 +74,7 @@ public final class Model implements IModel {
 			Mentity.strategy(y, x);
 		}
 
-		if (this.getCharacter().isCrashed())
-			this.getCharacter().die();
+		
 	}
 
 }	

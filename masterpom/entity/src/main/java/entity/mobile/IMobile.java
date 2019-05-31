@@ -21,10 +21,10 @@ public interface IMobile extends IEntity, IPawn{
 	public Point getPosition();
 	public void setPosition(Point position);
 	public boolean isAlive();
-	public boolean isCrashed();
+	
 	public void setHasMoved();
 	public boolean canMove(ControllerOrder choice);	
-	public void removeEntity();
+	
 	public Point getPositionAfterOrder(ControllerOrder choice);
 	public boolean isFalling();
 	public void setFall(boolean fall);

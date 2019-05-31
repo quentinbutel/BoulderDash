@@ -60,10 +60,7 @@ public class Charact extends MobileEntity{
 		super.die();
 		this.setSprite(spriteDeath);
 	}
-	public boolean isCrashed() {
-		// TODO Auto-generated method stub
-		return super.isCrashed();
-	}
+	
 	public boolean entityAllowsmvt(final ControllerOrder choice) {
 		Boolean push = false;
 		switch (choice) {
@@ -112,10 +109,10 @@ public class Charact extends MobileEntity{
 
 				} else if (mEntity.getPermeability() == PERMEABILITY.MINEABLE) {
 					// Player stepped on a diamond
-
-					mEntity.removeEntity();
+					this.getMap().getmEntity().remove(mEntity);
 					
 					this.getMap().decreaseDiamond();
+					
 
 					return true;
 				}
@@ -142,11 +139,7 @@ public class Charact extends MobileEntity{
 		// TODO Auto-generated method stub
 		return this.entityAllowsmvt(choice) && this.mapAllowsMvt(choice);
 	}
-	@Override
-	public void removeEntity() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	@Override
 	public void strategy(int y, int x) {
 		// TODO Auto-generated method stub

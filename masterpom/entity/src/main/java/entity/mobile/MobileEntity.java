@@ -49,9 +49,7 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	
 	public void setX(int x) {
 		this.getPosition().x = x;
-		if (this.isCrashed()) {
-			this.die();
-		}
+		
 
 	}
 	
@@ -62,9 +60,7 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	
 	public void setY(int y) {
 		this.getPosition().y = y;
-		if (this.isCrashed()) {
-			this.die();
-		}
+		
 
 	}
 	
@@ -110,16 +106,7 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 		return this.alive;
 	}
 	
-	public boolean isCrashed() {
-		for (IMobile mEntity: this.getMap().getmEntity()) {
-			if (mEntity.getSprite().getCharImage() == 'O' || mEntity.getSprite().getCharImage() == 'V') {
-				if (mEntity.getPosition().x == this.getPosition().x	&& mEntity.getPosition().y == this.getPosition().y - 1 && mEntity.isFalling()) {
-					return true;
-				}
-			}
-		}
-		return this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == PERMEABILITY.BLOCKING;
-	}
+	
 	
 	public void setHasMoved() {
 		this.getMap().setMobHasChanged();
@@ -138,10 +125,7 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 		this.map = map;
 	}
 	
-	public void removeEntity()  {
-		this.getMap().getmEntity().remove(this);
-		
-		}
+	
 
 	public boolean canMove(ControllerOrder choice) {
 		return this.mapAllowsMvt(choice) && this.entityAllowsmvt(choice);

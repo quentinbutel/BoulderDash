@@ -18,11 +18,7 @@ public class Ennemy extends MobileEntity{
 	}
 
 	
-	@Override
-	public void removeEntity() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 
 	@Override
