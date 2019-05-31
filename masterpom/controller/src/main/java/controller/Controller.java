@@ -130,7 +130,7 @@ public final class Controller implements IController{
 		this.getModel().moveEntity(y, x);
 		y = this.getModel().getMap().getCharacter().getY();
 		x = this.getModel().getMap().getCharacter().getX();
-	System.out.println(this.getModel().getMap().getDiamondCount());
+	
 			this.clearOrder();
 			this.getView().updateBoard();
 	

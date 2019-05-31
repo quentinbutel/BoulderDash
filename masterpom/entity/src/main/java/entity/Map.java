@@ -52,7 +52,11 @@ public class Map extends Observable implements IMap{
 	
 	public IEntity getOnTheMapXY(int x, int y) {
 		// TODO Auto-generated method stub
-		return this.map[x][y];
+		 if(x >= 0 && x < Map.getWidth() && y >= 0 && y < Map.getHeight())
+		    	return this.map[x][y];
+		    else
+		    	return this.map[0][0];
+		  
 	}
 	
 	public void setOnTheMapXY(IEntity entity, int x, int y) {

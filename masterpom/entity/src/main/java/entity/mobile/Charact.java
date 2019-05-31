@@ -9,8 +9,10 @@ import entity.IMap;
 
 import entity.PERMEABILITY;
 import entity.Sprite;
+import test.IBoard;
 
 public class Charact extends MobileEntity{
+	private IBoard board;
 	private static final Sprite sprite = new Sprite('C', Sprite.Chara,new Rectangle (0, 0, 16, 16));
 	private static final Sprite spriteLeft = new Sprite('C', Sprite.Chara, new Rectangle (0, 16, 16, 16));
 	private static final Sprite spriteRight = new Sprite('C', Sprite.Chara,new Rectangle (0, 48, 16, 16));
@@ -109,6 +111,7 @@ public class Charact extends MobileEntity{
 
 				} else if (mEntity.getPermeability() == PERMEABILITY.MINEABLE) {
 					// Player stepped on a diamond
+					mEntity.setPosition(new Point(-1, -1));
 					this.getMap().getmEntity().remove(mEntity);
 					
 					this.getMap().decreaseDiamond();
