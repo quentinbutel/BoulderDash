@@ -24,4 +24,11 @@ public class Ennemy extends MobileEntity{
 		
 	}
 
+
+	@Override
+	public void strategy(int y, int x) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

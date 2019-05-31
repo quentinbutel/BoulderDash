@@ -32,7 +32,7 @@ public abstract class Main {
      */
     public static void main(final String[] args) throws IOException, InterruptedException {
         final IModel model = new Model(4);
-      /* final View view = new View(model.getMap(), model.getCharacter(), model.getMap().getmEntity());
+       final View view = new View(model.getMap(), model.getCharacter(), model.getMap().getmEntity());
         final IController controller = new Controller(view, model);
         view.setController(controller);
        try {
@@ -41,7 +41,7 @@ public abstract class Main {
         } catch (InterruptedException e) {
         	System.out.println(e.getMessage());
 			e.printStackTrace();
-		}*/
+		}
 		
 
     }

@@ -146,7 +146,8 @@ class BoardPanel extends JPanel implements Observer {
     public final void addPawn(final IPawn pawn) {
         this.getPawns().add(pawn);
     }
-
+    
+    
     /**
      * Gets the image XY.
      *

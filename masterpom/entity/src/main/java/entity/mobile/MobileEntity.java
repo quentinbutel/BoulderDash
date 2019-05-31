@@ -24,9 +24,13 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	  private Point position;
 	  private IMap map;
 	  private boolean fall = false;
+	 
 	  
-	  
-	  public MobileEntity(Sprite sprite, IMap map, PERMEABILITY permeability) {
+	  public void setFall(boolean fall) {
+		this.fall = fall;
+	}
+
+	public MobileEntity(Sprite sprite, IMap map, PERMEABILITY permeability) {
 		  super(sprite, permeability);
 		  this.map = map;
 		  this.position = new Point();
@@ -135,12 +139,12 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	}
 	
 	public void removeEntity()  {
-		this.setPosition(new Point(-1, 1));
 		this.getMap().getmEntity().remove(this);
+		
 		}
 
 	public boolean canMove(ControllerOrder choice) {
-		return this.mapAllowsMvt(choice)&&this.entityAllowsmvt(choice);
+		return this.mapAllowsMvt(choice) && this.entityAllowsmvt(choice);
 		
 	}
 	public boolean mapAllowsMvt(ControllerOrder choice) {
@@ -199,9 +203,12 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	}
 
 	public void digg() {
+		
 		this.getMap().setOnTheMapXY(MotionLessEntityFactory.createDugWall(), this.getX(), this.getY());
 		try {
+			
 			this.getMap().getOnTheMapXY(getX(), getY()).getSprite().loadImage();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

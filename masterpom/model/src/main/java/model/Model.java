@@ -35,9 +35,9 @@ public final class Model implements IModel {
 		Sprite.loadSpriteSheet();
 		this.setMap(DAOMap.find(Level));
 		this.setCharacter(new Charact(2, 1, this.map));
-		System.out.println();
-		System.out.println(this.getMap().toString());
-		System.out.println();
+		
+		this.getMap().toString();
+		
 		
 		
 	}
@@ -67,11 +67,11 @@ public final class Model implements IModel {
 
 	
 
-	public void moveEntity() {
+	public void moveEntity(int y, int x) {
 		ArrayList<IMobile> mEntity = new ArrayList<>(this.getMap().getmEntity());
 		
 		for (IMobile Mentity : mEntity) {
-			Mentity.strategy();
+			Mentity.strategy(y, x);
 		}
 
 		if (this.getCharacter().isCrashed())

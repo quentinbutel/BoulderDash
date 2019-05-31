@@ -18,7 +18,7 @@ public interface IMap {
 	public void decreaseDiamond();
 	public void setMobHasChanged();
 	public void setOnTheMapXY(IEntity entity, int x, int y);
-	public PERMEABILITY getSquareIsOccupiedXY(final int x, final int y);
+	public PERMEABILITY getMapElementXY(final int x, final int y);
 	public void setCharacter(IMobile character);
 	
 	

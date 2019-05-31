@@ -41,7 +41,7 @@ public class DAOMap{
 				
 				//DAOMap.setmEntityOnMap(resultSet, id);
 			}*/
-			map1 = setmEntityOnMap(resultSet, id);
+			map1 = setmEntityOnMap(resultSet);
 			return map1;
 			
 		} catch (final SQLException e) {
@@ -55,9 +55,9 @@ public class DAOMap{
 		return connection;
 	}
 	
-	public static  IMap setmEntityOnMap(ResultSet result, int level) throws SQLException, IOException {
+	public static  IMap setmEntityOnMap(ResultSet result) throws SQLException, IOException {
 		
-		IMap map1 = new Map(new IEntity[Map.getWidth()][Map.getHeight()], level);
+		IMap map1 = new Map(new IEntity[Map.getWidth()][Map.getHeight()]);
 		while (result.next()) {
 		for (char c : result.getString("item").toCharArray()) {
 

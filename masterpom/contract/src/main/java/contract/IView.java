@@ -21,6 +21,6 @@ public interface IView {
 	 *          the message
 	 */
 	void printMessage(final String message);
-	//public void updateBoardFrame();
+	public void updateBoard();
 	
 }

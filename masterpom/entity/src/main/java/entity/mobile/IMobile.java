@@ -27,6 +27,7 @@ public interface IMobile extends IEntity, IPawn{
 	public void removeEntity();
 	public Point getPositionAfterOrder(ControllerOrder choice);
 	public boolean isFalling();
+	public void setFall(boolean fall);
 	public void digg();
-	public void strategy();
+	public void strategy(int y, int x);
 }

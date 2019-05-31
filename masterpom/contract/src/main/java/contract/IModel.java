@@ -23,6 +23,6 @@ public interface IModel {
 	 */
 	public IMap getMap();
 	public IMobile getCharacter();
-	public void moveEntity();
+	public void moveEntity(int y, int x) throws InterruptedException;
 
 }

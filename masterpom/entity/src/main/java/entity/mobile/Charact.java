@@ -26,25 +26,30 @@ public class Charact extends MobileEntity{
 		spriteDeath.loadImage();
 	}
 	public void moveUp() {
-		super.digg();
+		
 		super.moveUp();
+		
 		this.setSprite(spriteUp);	
+		super.digg();
 	}
 	public void moveDown() {
-		super.digg();
+		
 		super.moveDown();
 		this.setSprite(spriteDown);
+		super.digg();
 	}
 	public void moveRight() {
-		super.digg();
+		
 		super.moveRight();
 		this.setSprite(spriteRight);
+		super.digg();
 	}
 	
 	public void moveLeft() {
-		super.digg();
+		
 		super.moveLeft();
 		this.setSprite(spriteLeft);
+		super.digg();
 	}
 	public void immobile() {
 		super.immobile();
@@ -109,6 +114,7 @@ public class Charact extends MobileEntity{
 					// Player stepped on a diamond
 
 					mEntity.removeEntity();
+					
 					this.getMap().decreaseDiamond();
 
 					return true;
@@ -138,6 +144,11 @@ public class Charact extends MobileEntity{
 	}
 	@Override
 	public void removeEntity() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void strategy(int y, int x) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -17,7 +17,7 @@ public class Map extends Observable implements IMap{
 	private IEntity[][] map;	
 	private ArrayList<IMobile> mEntity;
 	private IMobile character;
-	private int level;
+	
 	public static int getWidth() {
 		return width;
 	}
@@ -25,9 +25,6 @@ public class Map extends Observable implements IMap{
 		return height;
 	}
 
-	
-	
-	
 	public IMobile getCharacter() {
 		return character;
 	}
@@ -41,16 +38,15 @@ public class Map extends Observable implements IMap{
 	public void setDiamondCount(int diamondCount) {
 		this.diamondCount = diamondCount;
 	}
-
 	public Observable getObservable() {
 		return this;
 	}
 	
 	
-	public Map(IEntity[][] map, int level) {
+	public Map(IEntity[][] map) {
 	this.map = map;
 	this.mEntity= new ArrayList<IMobile>();
-	this.level=level;
+	
 	}
 	
 	
@@ -74,7 +70,7 @@ public class Map extends Observable implements IMap{
 		this.mEntity.add(mEntity);
 	}
 	public ArrayList<IMobile> getmEntity() {
-		return mEntity;
+		return this.mEntity;
 	}
 	
 	public void addDiamond() {
@@ -84,7 +80,7 @@ public class Map extends Observable implements IMap{
 	public void decreaseDiamond() {
 		this.diamondCount--;
 	}
-	 public PERMEABILITY getSquareIsOccupiedXY(final int x, final int y) {
+	 public PERMEABILITY getMapElementXY(final int x, final int y) {
 		    Point point = new Point(x, y);
 		    for(IMobile mEntity : this.getmEntity()) {
 		      if (mEntity.getPosition().equals(point))
@@ -99,18 +95,20 @@ public class Map extends Observable implements IMap{
 	 
 	 public final String toString() {
 		 
-			 String temp = new String();
+			
 		    for (int y = 0; y < Map.getHeight(); y++) {
 		      for (int x = 0; x < Map.getWidth(); x++) {
-		    	  temp += map[x][y].getSprite().getCharImage();
-		  //      System.out.print(this.getOnTheMapXY(x, y).getSprite().getCharImage());
+		    	  
+		        System.out.print(this.getOnTheMapXY(x, y).getSprite().getCharImage());
 		      }
-		      temp += '\n';
-		    
+		    }
+		    System.out.println();
+		    for (IMobile mentity : mEntity) {
+		    	System.out.print(mentity.getSprite().getCharImage());
 		    }
 		  
 		 
-		 return temp;
+		 return "fin";
 	  }
 	
 	 

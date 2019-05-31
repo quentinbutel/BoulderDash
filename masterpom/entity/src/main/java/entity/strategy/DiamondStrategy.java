@@ -5,14 +5,8 @@ import entity.mobile.IMobile;
 import entity.mobile.MobileEntity;
 
 public class DiamondStrategy extends FallingStrategy{
-	public void strategy(IMobile mEntity, IMap map) {
-		// if the currentPawn is above the player
-		if ((mEntity.getPosition().y == map.getCharacter().getPosition().y - 1 && mEntity.getPosition().x == map.getCharacter().getPosition().x)
-				|| mEntity.getPosition().equals(map.getCharacter().getPosition())) {
-			mEntity.removeEntity();
-			map.decreaseDiamond();
-			
-		}
-		super.strategy(mEntity, map);
+	public void strategy(IMobile mEntity, IMap map, int y, int x) {
+		
+		super.strategy(mEntity, map, y, x);
 	}
 }

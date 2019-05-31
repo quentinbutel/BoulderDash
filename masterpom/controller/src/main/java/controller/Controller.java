@@ -13,8 +13,10 @@ import entity.ControllerOrder;
 public final class Controller implements IController{
 
 	/** The view. */
+	private int y;
+	private int x;
 	private IView		view;
-	private static final int thread = 100;
+	private static final int thread = 200;
 
 	/** The model. */
 	private IModel	model;
@@ -125,10 +127,12 @@ public final class Controller implements IController{
 		}
 			
 			
-		this.getModel().moveEntity();
+		this.getModel().moveEntity(y, x);
+		y = this.getModel().getMap().getCharacter().getY();
+		x = this.getModel().getMap().getCharacter().getX();
 	System.out.println(this.getModel().getMap().getDiamondCount());
 			this.clearOrder();
-			//this.getView().updateBoardFrame();
+			this.getView().updateBoard();
 	
 			if (this.getModel().getMap().getDiamondCount() <= 0) {
 				this.getView().printMessage("You have won!");

@@ -87,8 +87,8 @@ public class Boulder extends MobileEntity{
 		}
 	}
 	
-	public  void strategy() {
-		Boulder.strategy.strategy(this, this.getMap());
+	public  void strategy(int y, int x) {
+		Boulder.strategy.strategy(this, this.getMap(), y, x);
 		
 	}
 

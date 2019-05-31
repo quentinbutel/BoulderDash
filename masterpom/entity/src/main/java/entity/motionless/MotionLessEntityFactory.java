@@ -1,14 +1,11 @@
 package entity.motionless;
 
 public class MotionLessEntityFactory {
-	private static Exit exit = new Exit();
+	
 	private static NotDugWall notdugwall =  new NotDugWall();
 	private static DugWall dugwall = new DugWall();
 	private static UnbreakableWall unbreakablewall = new UnbreakableWall();
-	private static MotionLessEntity[] motionlessEntity = {notdugwall, dugwall, unbreakablewall, exit};
-	public static MotionLessEntity createExit() {
-		return exit;
-	}
+	private static MotionLessEntity[] motionlessEntity = {notdugwall, dugwall, unbreakablewall};
 	
 	public static MotionLessEntity createNotDugWall() {
 		return notdugwall;

@@ -101,7 +101,8 @@ public class BoardFrame extends JFrame implements IBoard {
     public final void addPawn(final IPawn pawn) {
         this.getBoardPanel().addPawn(pawn);
     }
-
+    
+    
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#getObserver()

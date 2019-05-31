@@ -31,6 +31,8 @@ public interface IBoard {
      * @param pawn the pawn
      */
     void addPawn(IPawn pawn);
+    
+   
 
     /**
      * Gets the observer.
