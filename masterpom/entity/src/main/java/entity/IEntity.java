@@ -2,7 +2,7 @@ package entity;
 
 import java.awt.Image;
 
-import test.ISquare;
+import showboard.ISquare;
 
 
 

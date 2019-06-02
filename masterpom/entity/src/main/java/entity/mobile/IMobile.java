@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import entity.ControllerOrder;
 import entity.IEntity;
-import test.IPawn;
+import showboard.IPawn;
 
 public interface IMobile extends IEntity, IPawn{
 	public int getX();

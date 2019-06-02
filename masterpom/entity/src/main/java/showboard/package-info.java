@@ -4,4 +4,4 @@
  *
  */
 
-package test;
+package showboard;

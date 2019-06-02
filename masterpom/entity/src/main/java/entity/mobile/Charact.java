@@ -9,7 +9,7 @@ import entity.IMap;
 
 import entity.PERMEABILITY;
 import entity.Sprite;
-import test.IBoard;
+import showboard.IBoard;
 
 public class Charact extends MobileEntity{
 	private IBoard board;

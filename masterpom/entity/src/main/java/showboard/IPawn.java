@@ -1,4 +1,4 @@
-package test;
+package showboard;
 
 import java.awt.Point;
 

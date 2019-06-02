@@ -20,7 +20,7 @@ import entity.ControllerOrder;
 import entity.IMap;
 import entity.Map;
 import entity.mobile.IMobile;
-import test.BoardFrame;
+import showboard.BoardFrame;
 
 
 
