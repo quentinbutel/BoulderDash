@@ -30,12 +30,36 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 		this.fall = fall;
 	}
 
+	  /**
+		 * Instantiates a  mobile.
+		 *
+		 * @param sprite
+		 *            the sprite
+		 * @param map
+		 *            the map
+		 * @param permeability
+		 *            the permeability
+		 */
 	public MobileEntity(Sprite sprite, IMap map, PERMEABILITY permeability) {
 		  super(sprite, permeability);
 		  this.map = map;
 		  this.position = new Point();
 	  }
-	  
+	
+	/**
+	 * Instantiates a  mobile.
+	 *
+	 * @param x
+	 *            the x
+	 * @param y
+	 *            the y
+	 * @param sprite
+	 *            the sprite
+	 * @param map
+	 *            the map
+	 * @param permeability
+	 *            the permeability
+	 */
 	  public MobileEntity(int x, int y, Sprite sprite, IMap map, PERMEABILITY permeability) {
 		  this(sprite, map, permeability);
 		  this.getPosition().x=x;
@@ -107,7 +131,9 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	}
 	
 	
-	
+	/**
+	 * sets if it moves
+	 */
 	public void setHasMoved() {
 		this.getMap().setMobHasChanged();
 	}
@@ -164,6 +190,12 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 		return true;
 	}
 	
+	/**
+	 * gets position after we choose a direction
+	 * @param choice
+	 * choice
+	 * @return Point
+	 */
 	public Point getPositionAfterOrder(ControllerOrder choice) {
 		Point posAfter = null;
 			switch (choice) {
@@ -187,7 +219,9 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	}
 
 	
-	// Create a dugWall when our character moves
+	/**
+	 * Create a dugWall when our character moves
+	 */
 	public void digg() {		
 		this.getMap().setOnTheMapXY(MotionLessEntityFactory.createDugWall(), this.getX(), this.getY());
 		try {

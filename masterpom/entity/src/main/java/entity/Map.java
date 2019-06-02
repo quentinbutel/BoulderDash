@@ -41,7 +41,11 @@ public class Map extends Observable implements IMap{
 	public Observable getObservable() {
 		return this;
 	}
-	
+	/**
+	 * Constructor
+	 * @param map
+	 * a new map
+	 */
 	
 	public Map(IEntity[][] map) {
 	this.map = map;
@@ -87,6 +91,14 @@ public class Map extends Observable implements IMap{
 	}
 	
 	//we need to know what permeability is on our side
+	/**
+	 * Return the permeability of an element
+	 * @param x
+	 * x
+	 * @param y
+	 * y
+	 * @return permeability
+	 */
 	 public PERMEABILITY getMapElementXY(final int x, final int y) {
 		    Point point = new Point(x, y);
 		    for(IMobile mEntity : this.getmEntity()) {

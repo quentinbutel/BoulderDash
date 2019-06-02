@@ -21,6 +21,10 @@ public interface IView {
 	 *          the message
 	 */
 	void printMessage(final String message);
+	
+	/**
+	 * Repaint elements on the map
+	 */
 	public void updateBoard();
 	
 }

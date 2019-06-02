@@ -14,6 +14,12 @@ public interface IController {
 	 * Control.
 	 */
 	public  void control();
+	
+	/**
+	 * Play
+	 * @throws InterruptedException
+	 * the interrupted exception
+	 */
 	public void play() throws InterruptedException;
 	
 	/**

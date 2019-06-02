@@ -17,12 +17,27 @@ import entity.mobile.IMobile;
 public interface IModel {
 
 	/**
-	 * Gets the hello world.
+	 * Gets the map.
 	 *
-	 * @return the helloworld entity
+	 * @return the map with all of the elements
 	 */
 	public IMap getMap();
+	
+	/**
+	 * Gets our character
+	 * @return the character
+	 */
 	public IMobile getCharacter();
+	
+	/**
+	 * MobileEntity and their strategy.
+	 * @param y
+	 * x
+	 * @param x
+	 * y
+	 * @throws InterruptedException
+	 * the interrupted exception
+	 */
 	public void moveEntity(int y, int x) throws InterruptedException;
 
 }

@@ -99,6 +99,11 @@ public final class Controller implements IController{
 		this.order=ControllerOrder.None;
 	}
 	
+	/**
+	 * Play
+	 * @throws InterruptedException
+	 * the interrupted exception
+	 */
 	public final void play() throws InterruptedException{
 		this.getModel().getMap().setCharacter(this.getModel().getCharacter());
 		
@@ -154,17 +159,7 @@ public final class Controller implements IController{
 
 
 
-	/**
-     * Order perform.
-     *
-     * @param controllerOrder
-     *            the controller order
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IController#orderPerform(contract.ControllerOrder)
-	 */
+	
 	
 
 }

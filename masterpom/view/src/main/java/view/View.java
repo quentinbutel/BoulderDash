@@ -47,10 +47,10 @@ public  class View implements IView, Runnable, KeyListener {
 		this.controller = controller;
 	}
 
-	/** The frame. */
-	
-
-	
+	/** The frame. +
+	 * @return map
+	 * our map
+	 */
 	public IMap getMap() {
 		return map;
 	}

@@ -16,14 +16,27 @@ import entity.strategy.IStrategy;
 public class Boulder extends MobileEntity{
 	
 	private static IStrategy strategy = new BoulderStrategy();
+	private static  final Sprite sprite = new Sprite('B',  Sprite.world,new Rectangle (48, 0, 16, 16));
+	
+	
+	
+	/**
+	 * 
+	 * @param x
+	 * x
+	 * @param y
+	 * y
+	 * @param map
+	 *  map
+	 * @throws IOException
+	 * Signal an IOexception
+	 */
 	public Boulder(int x, int y, IMap map) throws IOException {
 		super(x, y, sprite, map, PERMEABILITY.BLOCKING);
 		sprite.loadImage();
 		// TODO Auto-generated constructor stub
 	}
 
-	private static  final Sprite sprite = new Sprite('B',  Sprite.world,new Rectangle (48, 0, 16, 16));
-	
 	
 
 	@Override
@@ -57,7 +70,9 @@ public class Boulder extends MobileEntity{
 	}
 
 
-
+	/**
+	 * Check if the boulder can move to the direction according to the over mEntity
+	 */
 	@Override
 	public boolean entityAllowsmvt(ControllerOrder choice) {
 		Point posAfter = null;
@@ -87,6 +102,14 @@ public class Boulder extends MobileEntity{
 		}
 	}
 	
+	
+	/**
+	 * boulderStrategy
+	 * @param y
+	 * y
+	 * @param x
+	 * x
+	 */
 	public  void strategy(int y, int x) {
 		Boulder.strategy.strategy(this, this.getMap(), y, x);
 		

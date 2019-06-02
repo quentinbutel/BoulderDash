@@ -14,6 +14,17 @@ import entity.strategy.IStrategy;
 public class Diamond extends MobileEntity{
 	private static IStrategy strategy = new DiamondStrategy();
 	
+	/**
+	 * 
+	 * @param x
+	 * x
+	 * @param y
+	 * y
+	 * @param map
+	 * our map
+	 * @throws IOException
+	 * Signal an IOexception
+	 */
 	public Diamond(int x, int y, IMap map) throws IOException {
 		super(x, y, sprite, map, PERMEABILITY.MINEABLE);
 		sprite.loadImage();
@@ -46,6 +57,13 @@ public class Diamond extends MobileEntity{
 		super.immobile();
 	}
 	
+	/**
+	 * diamondStrategy
+	 * @param y
+	 * y
+	 * @param x
+	 * x
+	 */
 	public void strategy(int y, int x) {
 		Diamond.strategy.strategy(this, this.getMap(), y, x);
 	}

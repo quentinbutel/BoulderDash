@@ -12,13 +12,24 @@ import entity.Sprite;
 import showboard.IBoard;
 
 public class Charact extends MobileEntity{
-	private IBoard board;
+	
 	private static final Sprite sprite = new Sprite('C', Sprite.Chara,new Rectangle (0, 0, 16, 16));
 	private static final Sprite spriteLeft = new Sprite('C', Sprite.Chara, new Rectangle (0, 16, 16, 16));
 	private static final Sprite spriteRight = new Sprite('C', Sprite.Chara,new Rectangle (0, 48, 16, 16));
 	private static final Sprite spriteDown = new Sprite('C', Sprite.Chara, new Rectangle (0, 64, 16, 16));
 	private static final Sprite spriteUp = new Sprite('C', Sprite.Chara, new Rectangle (0, 0, 16, 16));
 	private static final Sprite spriteDeath = new Sprite('C', Sprite.Chara, new Rectangle (80, 80, 16, 16));
+	
+	/**
+	 * @param x
+	 * x
+	 * @param y
+	 * y
+	 * @param map
+	 * our map
+	 * @throws IOException
+	 * Signal an IOexception
+	 */
 	public Charact(int x, int y, IMap map) throws IOException {
 		super(x, y, sprite, map, PERMEABILITY.BLOCKING);
 		spriteLeft.loadImage();

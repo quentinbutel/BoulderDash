@@ -21,14 +21,17 @@ import entity.mobile.MobileEntity;
  */
 public final class Model implements IModel {
 
-	/** The helloWorld. */
+	/** The map. */
 	private IMap map;
 	
 	private IMobile character;
 
 	/**
 	 * Instantiates a new model.
-	 * @throws IOException 
+	 * @param Level
+	 * the level that we choose
+	 * @throws IOException
+	 * Signal an IOexception
 	 */
 	public Model(int Level) throws IOException {
 		super();
