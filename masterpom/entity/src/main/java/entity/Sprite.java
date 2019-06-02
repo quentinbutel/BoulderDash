@@ -89,7 +89,7 @@ public static void loadSpriteSheet() {
 	
 	public void loadImage() throws IOException {
 		this.setImage(buffer.getSubimage(part.x, part.y, part.width, part.height));
-		//this.getImage().getScaledInstance(48, 48, Image.SCALE_DEFAULT);
+		
 	}
 	
 	public boolean isImageLoaded() {

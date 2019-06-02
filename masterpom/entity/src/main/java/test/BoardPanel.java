@@ -112,6 +112,7 @@ class BoardPanel extends JPanel implements Observer {
                 this.drawPawnsXY(graphics, mapPawn, x, y);
             }
         }
+       
     }
 
     /*

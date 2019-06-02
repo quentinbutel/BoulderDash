@@ -7,6 +7,7 @@ public class MotionLessEntityFactory {
 	private static UnbreakableWall unbreakablewall = new UnbreakableWall();
 	private static MotionLessEntity[] motionlessEntity = {notdugwall, dugwall, unbreakablewall};
 	
+	//We create a factory for our motionLessElement
 	public static MotionLessEntity createNotDugWall() {
 		return notdugwall;
 	}
@@ -27,6 +28,7 @@ public class MotionLessEntityFactory {
 	                return motionlessEntity;
 	       }
 		 }
+		 // If the symbols do not match, we create by default a dugWall
 		return dugwall;
 	}
 }

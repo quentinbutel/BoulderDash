@@ -3,14 +3,6 @@ package entity;
 import java.awt.Image;
 
 
-
-
-
-/**
- * The Class Entity.
- *
- * @author Jean-Aymeric Diet
- */
 public abstract class Entity implements IEntity{
 	public Entity(Sprite sprite, PERMEABILITY permeability) {
 		this.permeability = permeability;

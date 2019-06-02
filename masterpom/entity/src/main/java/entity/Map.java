@@ -51,7 +51,7 @@ public class Map extends Observable implements IMap{
 	
 	
 	public IEntity getOnTheMapXY(int x, int y) {
-		// TODO Auto-generated method stub
+		// we check if we are not at the edge of the map
 		 if(x >= 0 && x < Map.getWidth() && y >= 0 && y < Map.getHeight())
 		    	return this.map[x][y];
 		    else
@@ -65,6 +65,7 @@ public class Map extends Observable implements IMap{
 	
 	
 	public void setMobHasChanged() {
+		// It's our methode that will tell the view(the observer) if there is change
 		this.setChanged();
 		this.notifyObservers();
 	
@@ -84,6 +85,8 @@ public class Map extends Observable implements IMap{
 	public void decreaseDiamond() {
 		this.diamondCount--;
 	}
+	
+	//we need to know what permeability is on our side
 	 public PERMEABILITY getMapElementXY(final int x, final int y) {
 		    Point point = new Point(x, y);
 		    for(IMobile mEntity : this.getmEntity()) {
@@ -97,24 +100,7 @@ public class Map extends Observable implements IMap{
 		    return this.getOnTheMapXY(x, y).getPermeability();
 		  }
 	 
-	 public final String toString() {
-		 
-			
-		    for (int y = 0; y < Map.getHeight(); y++) {
-		      for (int x = 0; x < Map.getWidth(); x++) {
-		    	  
-		        System.out.print(this.getOnTheMapXY(x, y).getSprite().getCharImage());
-		      }
-		    }
-		    System.out.println();
-		    for (IMobile mentity : mEntity) {
-		    	System.out.print(mentity.getSprite().getCharImage());
-		    }
-		  
-		 
-		 return "fin";
-	  }
-	
+	 
 	 
 	
 }

@@ -15,6 +15,7 @@ public final class Controller implements IController{
 	/** The view. */
 	private int y;
 	private int x;
+	
 	private IView		view;
 	private static final int thread = 200;
 
@@ -64,6 +65,8 @@ public final class Controller implements IController{
 	public void control() {
 		this.view.printMessage("Appuyer sur les flèches directionnelles pour vous déplacer dans le jeu.");
 	}
+	
+	
 
 	/**
      * Sets the view.
@@ -118,6 +121,8 @@ public final class Controller implements IController{
 				case Down : 
 					this.getModel().getCharacter().moveDown();
 					
+					
+					
 					break;
 				case None : 
 					default : this.getModel().getCharacter().immobile();
@@ -126,16 +131,16 @@ public final class Controller implements IController{
 				}
 		}
 			
-			
-		this.getModel().moveEntity(y, x);
-		y = this.getModel().getMap().getCharacter().getY();
-		x = this.getModel().getMap().getCharacter().getX();
+			y = this.getModel().getMap().getCharacter().getY();
+			x = this.getModel().getMap().getCharacter().getX();
+			this.getModel().moveEntity(y, x);
 	
+		
 			this.clearOrder();
 			this.getView().updateBoard();
-	
-			if (this.getModel().getMap().getDiamondCount() <= 0) {
-				this.getView().printMessage("You have won!");
+			
+			if (this.getModel().getMap().getDiamondCount()==0) {
+				this.getView().printMessage("Good Game");
 				System.exit(0);
 			}
 		}

@@ -89,13 +89,7 @@ public  class View implements IView, Runnable, KeyListener {
 	}
 
 	
-	/**
-	 * Instantiates a new view.
-	 *
-	 * @param model
-	 *          the model
-	 * @throws IOException 
-	 */
+	
 	public View(final IMap map, final IMobile character, final ArrayList<IMobile> mEntity) throws IOException {
 		
 		this.setMap(map);
@@ -107,13 +101,7 @@ public  class View implements IView, Runnable, KeyListener {
 		SwingUtilities.invokeLater(this);
 	}
 
-	/**
-	 * Key code to controller order.
-	 *
-	 * @param keyCode
-	 *          the key code
-	 * @return the controller order
-	 */
+	
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		//ControllerOrder control;
 		switch (keyCode) {
@@ -135,20 +123,13 @@ public  class View implements IView, Runnable, KeyListener {
 		
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IView#printMessage(java.lang.String)
-	 */
+	
 	public void printMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
+		
 	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Runnable#run()
-	 */
+	
+	
 	public void run() {
 		boardFrame = new BoardFrame("Boulderdash");
 		boardFrame.setDimension(new Dimension(Map.getWidth(), Map.getHeight()));
@@ -176,12 +157,7 @@ public  class View implements IView, Runnable, KeyListener {
 		boardFrame.setVisible(true);
 	}
 
-	/**
-	 * Sets the controller.
-	 *
-	 * @param controller
-	 *          the new controller
-	 */
+	
 	
 
 	

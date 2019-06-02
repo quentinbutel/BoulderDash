@@ -17,7 +17,7 @@ public class Charact extends MobileEntity{
 	private static final Sprite spriteLeft = new Sprite('C', Sprite.Chara, new Rectangle (0, 16, 16, 16));
 	private static final Sprite spriteRight = new Sprite('C', Sprite.Chara,new Rectangle (0, 48, 16, 16));
 	private static final Sprite spriteDown = new Sprite('C', Sprite.Chara, new Rectangle (0, 64, 16, 16));
-	private static final Sprite spriteUp = new Sprite('C', Sprite.Chara, new Rectangle (0, 0, 32, 16));
+	private static final Sprite spriteUp = new Sprite('C', Sprite.Chara, new Rectangle (0, 0, 16, 16));
 	private static final Sprite spriteDeath = new Sprite('C', Sprite.Chara, new Rectangle (80, 80, 16, 16));
 	public Charact(int x, int y, IMap map) throws IOException {
 		super(x, y, sprite, map, PERMEABILITY.BLOCKING);
@@ -64,6 +64,8 @@ public class Charact extends MobileEntity{
 	}
 	
 	public boolean entityAllowsmvt(final ControllerOrder choice) {
+		
+		//Can our character push a boulder
 		Boolean push = false;
 		switch (choice) {
 		case Right:
@@ -98,6 +100,7 @@ public class Charact extends MobileEntity{
 		for (IMobile mEntity : this.getMap().getmEntity()) {
 			if (mEntity.getPosition().equals(desiredPosition)) {
 				if (mEntity.getPermeability() == PERMEABILITY.BLOCKING) {
+					//if he can, the boulder moves
 					if (push) {
 						if (choice == ControllerOrder.Right)
 							mEntity.moveRight();
@@ -110,7 +113,7 @@ public class Charact extends MobileEntity{
 					}
 
 				} else if (mEntity.getPermeability() == PERMEABILITY.MINEABLE) {
-					// Player stepped on a diamond
+					// Our character recovered a diamond
 					mEntity.setPosition(new Point(-1, -1));
 					this.getMap().getmEntity().remove(mEntity);
 					

@@ -63,7 +63,7 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 		
 
 	}
-	
+	// we indicate a change with each movement
 	public void moveUp() {
 		this.setY(this.getY()-1);
 		this.setHasMoved();
@@ -186,8 +186,9 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 		return fall;
 	}
 
-	public void digg() {
-		
+	
+	// Create a dugWall when our character moves
+	public void digg() {		
 		this.getMap().setOnTheMapXY(MotionLessEntityFactory.createDugWall(), this.getX(), this.getY());
 		try {
 			

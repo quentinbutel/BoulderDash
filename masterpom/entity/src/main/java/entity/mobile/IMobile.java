@@ -25,7 +25,7 @@ public interface IMobile extends IEntity, IPawn{
 	public void setHasMoved();
 	public boolean canMove(ControllerOrder choice);	
 	
-	public Point getPositionAfterOrder(ControllerOrder choice);
+	
 	public boolean isFalling();
 	public void setFall(boolean fall);
 	public void digg();

@@ -15,8 +15,6 @@ public abstract class FallingStrategy implements IStrategy{
 		} else if(mEntity.isFalling() == true && mEntity.getY() == y-1 && mEntity.getX()==x) {
 			
 				map.getCharacter().die();
-		
-			
 		}		
 		
 		else {

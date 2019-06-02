@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import java.util.Observer;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  * <h1>The Class BoardFrame.</h1>
@@ -52,6 +53,7 @@ public class BoardFrame extends JFrame implements IBoard {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setUndecorated(decorated);
         this.boardPanel = new BoardPanel();
+      
         this.setContentPane(this.boardPanel);
         this.setResizable(false);
         this.setVisible(true);
