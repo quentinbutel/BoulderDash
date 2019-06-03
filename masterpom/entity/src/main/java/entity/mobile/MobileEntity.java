@@ -31,14 +31,14 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	}
 
 	  /**
-		 * Instantiates a  mobile.
+		 * Instantiates a mobile entity
 		 *
 		 * @param sprite
-		 *            the sprite
+		 * Instantiates the sprite
 		 * @param map
-		 *            the map
+		 * Instantiates the map
 		 * @param permeability
-		 *            the permeability
+		 * Instantiates the permeability of the entity
 		 */
 	public MobileEntity(Sprite sprite, IMap map, PERMEABILITY permeability) {
 		  super(sprite, permeability);
@@ -50,15 +50,15 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	 * Instantiates a  mobile.
 	 *
 	 * @param x
-	 *            the x
+	 * Instantiates the x coordinate of the mobile
 	 * @param y
-	 *            the y
+	 * Instantiates the y coordinate of the mobile
 	 * @param sprite
-	 *            the sprite
+	 * Instantiates the sprite
 	 * @param map
-	 *            the map
+	 * Instantiates the map
 	 * @param permeability
-	 *            the permeability
+	 * Instantiates the permeability of the mobile
 	 */
 	  public MobileEntity(int x, int y, Sprite sprite, IMap map, PERMEABILITY permeability) {
 		  this(sprite, map, permeability);
@@ -87,6 +87,11 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 		
 
 	}
+	
+	/**
+	 * indicates that the entity has moved each time it moves
+	 */
+	
 	// we indicate a change with each movement
 	public void moveUp() {
 		this.setY(this.getY()-1);

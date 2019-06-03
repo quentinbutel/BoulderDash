@@ -17,9 +17,9 @@ public class Diamond extends MobileEntity{
 	/**
 	 * 
 	 * @param x
-	 * x
+	 * x coordinate of a diamond on the map
 	 * @param y
-	 * y
+	 * y coordinate of a diamond on the map
 	 * @param map
 	 * our map
 	 * @throws IOException
@@ -33,23 +33,40 @@ public class Diamond extends MobileEntity{
 
 	private static final Sprite sprite = new Sprite('D', Sprite.world, new Rectangle (64, 0, 16, 16));
 
+	/**
+	 * This manages the movement of the diamond on the map
+	 * moveDown() moves the diamond downwards when the area underneath it is free
+	 */
+	
 	@Override
 	public void moveDown() {
 		// TODO Auto-generated method stub
 		super.moveDown();
 	}
+	
+	/**
+	 * moveRight() moves the diamond to the right if the area below it is full and that the areas to the right and bottom right are free
+	 */
 
 	@Override
 	public void moveRight() {
 		// TODO Auto-generated method stub
 		super.moveRight();
 	}
+	
+	/**
+	 * moveLeft() moves the diamond to the left if the area below it is full and that the areas to the left and bottom left are free
+	 */
 
 	@Override
 	public void moveLeft() {
 		// TODO Auto-generated method stub
 		super.moveLeft();
 	}
+	
+	/**
+	 * immobile() is for when the diamond is static on the map and cannot move in any direction
+	 */
 
 	@Override
 	public void immobile() {
@@ -58,11 +75,11 @@ public class Diamond extends MobileEntity{
 	}
 	
 	/**
-	 * diamondStrategy
+	 * diamondStrategy() lets the game know whether the player can take the diamond or not, and how it behaves according to the player
 	 * @param y
-	 * y
+	 * y coordinate of the diamond
 	 * @param x
-	 * x
+	 * x coordinate of the diamond
 	 */
 	public void strategy(int y, int x) {
 		Diamond.strategy.strategy(this, this.getMap(), y, x);
