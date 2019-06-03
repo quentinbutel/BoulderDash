@@ -6,7 +6,9 @@ import entity.PERMEABILITY;
 import entity.Sprite;
 
 /**
- * creates a new unbreakablewall
+ * the class UnbreakableWall
+ * @author Quentin
+ *
  */
 class UnbreakableWall extends MotionLessEntity{
 	private static final Sprite sprite = new Sprite('X',  Sprite.world, new Rectangle (0, 0, 16, 16));

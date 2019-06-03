@@ -3,7 +3,7 @@ package entity;
 /**
  * The Enum ControllerOrder.
  *
- * @author Jean-Aymeric Diet
+ * @author Quentin
  */
 public enum ControllerOrder {
 

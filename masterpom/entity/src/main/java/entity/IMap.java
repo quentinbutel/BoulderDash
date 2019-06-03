@@ -7,6 +7,11 @@ import entity.mobile.Charact;
 import entity.mobile.IMobile;
 import entity.mobile.MobileEntity;
 
+/**
+ * the interface IMap
+ * @author Quentin
+ *
+ */
 public interface IMap {
 	/**
 	 * 

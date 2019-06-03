@@ -10,7 +10,7 @@ import entity.mobile.IMobile;
 /**
  * The Interface IView.
  *
- * @author Jean-Aymeric Diet
+ * @author Quentin
  */
 public interface IView {
 

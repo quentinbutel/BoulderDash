@@ -13,6 +13,11 @@ import entity.Sprite;
 import entity.strategy.BoulderStrategy;
 import entity.strategy.IStrategy;
 
+/**
+ * the class Boulder
+ * @author Quentin
+ *
+ */
 public class Boulder extends MobileEntity{
 	
 	private static IStrategy strategy = new BoulderStrategy();
@@ -38,7 +43,9 @@ public class Boulder extends MobileEntity{
 	}
 
 	
-
+	/**
+	 * move Boulder to the down
+	 */
 	@Override
 	public void moveDown() {
 		// TODO Auto-generated method stub
@@ -46,7 +53,9 @@ public class Boulder extends MobileEntity{
 	}
 
 
-
+	/**
+	 * move Boulder to the right
+	 */
 	@Override
 	public void moveRight() {
 		// TODO Auto-generated method stub
@@ -54,7 +63,9 @@ public class Boulder extends MobileEntity{
 	}
 
 
-
+	/**
+	 * move Boulder to the left
+	 */
 	@Override
 	public void moveLeft() {
 		// TODO Auto-generated method stub
@@ -62,7 +73,9 @@ public class Boulder extends MobileEntity{
 	}
 
 
-
+	/**
+	 * Don't move
+	 */
 	@Override
 	public void immobile() {
 		// TODO Auto-generated method stub

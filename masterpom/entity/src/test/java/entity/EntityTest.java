@@ -9,9 +9,15 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+/**
+ * the class EntityTest
+ * @author Quentin, Lorry
+ *
+ */
 public class EntityTest {
+	/** sprite*/
 	private Sprite sprite;
+	/**permeability*/
 	private PERMEABILITY permeability = PERMEABILITY.BLOCKING;
 
 	@BeforeClass
@@ -36,7 +42,9 @@ public class EntityTest {
 		assertNotNull(permeability);
 		
 	}
-
+	/**
+	   * This test verifie that method GetSprite does not return a null result.
+	   */
 	@Test
 	public void testGetSprite() {
 		assertNotNull(sprite);
@@ -44,6 +52,9 @@ public class EntityTest {
 	}
 
 	//we don't load the spriteSheet.
+	/**
+	   * This test verifie that method GetImage does not return a null result.
+	   */
 	@Test
 	public void testGetImage() {
 		assertNull(sprite.getImage());

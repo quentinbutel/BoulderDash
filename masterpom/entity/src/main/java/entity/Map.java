@@ -8,6 +8,11 @@ import java.util.Observable;
 
 import entity.mobile.IMobile;
 
+/**
+ * the class Map
+ * @author Quentin
+ *
+ */
 public class Map extends Observable implements IMap{
 
 		/** width */

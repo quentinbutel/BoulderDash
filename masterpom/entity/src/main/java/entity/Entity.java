@@ -2,7 +2,11 @@ package entity;
 
 import java.awt.Image;
 
-
+/**
+* The class  Entity
+* @author Quentin
+*
+*/
 public abstract class Entity implements IEntity{
 	
 	/**

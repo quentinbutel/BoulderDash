@@ -12,7 +12,7 @@ import entity.mobile.IMobile;
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
+ * @author Quentin
  */
 public interface IModel {
 
@@ -35,9 +35,7 @@ public interface IModel {
 	 * x
 	 * @param x
 	 * y
-	 * @throws InterruptedException
-	 * the interrupted exception
 	 */
-	public void moveEntity(int y, int x) throws InterruptedException;
+	public void moveEntity(int y, int x);
 
 }

@@ -18,14 +18,26 @@ import entity.strategy.IStrategy;
 
 
 
-
+/**
+ * The class  MobileEntity
+ * @author Quentin
+ *
+ */
 public abstract  class MobileEntity extends Entity implements IMobile{
+	/** alive*/
 	  private boolean alive =true;
+	  /**position*/
 	  private Point position;
+	  /**map*/
 	  private IMap map;
+	  /**fall*/
 	  private boolean fall = false;
 	 
-	  
+	  /**
+	   * sets fall
+	   * @param fall
+	   * fall
+	   */
 	  public void setFall(boolean fall) {
 		this.fall = fall;
 	}
@@ -65,23 +77,39 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 		  this.getPosition().x=x;
 		  this.getPosition().y = y;
 	  }
-	
+	/**
+	 * gets X
+	 * return x
+	 * x
+	 */
 	public int getX() {
 		// TODO Auto-generated method stub
 		return this.getPosition().x;
 	}
-	
+	/**
+	 * sets X
+	 * @param x
+	 * x
+	 */
 	public void setX(int x) {
 		this.getPosition().x = x;
 		
 
 	}
-	
+	/**
+	 * gets Y
+	 * return y
+	 * y
+	 */
 	public int getY() {
 		// TODO Auto-generated method stub
 		return this.getPosition().y;
 	}
-	
+	/**
+	 * sets y
+	 * @param y
+	 * y
+	 */
 	public void setY(int y) {
 		this.getPosition().y = y;
 		
@@ -93,39 +121,48 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	 */
 	
 	// we indicate a change with each movement
+	/** move mEntity to the Up*/
 	public void moveUp() {
 		this.setY(this.getY()-1);
 		this.setHasMoved();
 	}
-	
+	/** move mEntity to the Down*/
 	public void moveDown() {
 		this.setY(this.getY()+1);
 		this.fall=true;
 		this.setHasMoved();
 		
 	}
-	
+	/** move mEntity to the Right*/
 	public void moveRight() {
 		this.setX(this.getX()+1);
 		this.setHasMoved();
 	}
-	
+	/** move mEntity to the left*/
 	public void moveLeft() {
 		this.setX(this.getX()-1);
 		this.setHasMoved();
 		
 	}
-	
+	/**Don't move*/
 	public void immobile() {
 		this.fall = false;
 		this.setHasMoved();		
 	}
 	
-	
+	/**
+	 * gets position
+	 * @return position
+	 * position
+	 */
 	public Point getPosition() {
 		return position;
 	}
-
+	/**
+	 * sets position
+	 * @param position
+	 * position
+	 */
 	public void setPosition(Point position) {
 		this.position = position;
 	}
@@ -142,7 +179,7 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	public void setHasMoved() {
 		this.getMap().setMobHasChanged();
 	}
-	  
+	  /** mEntity dies*/
 	public void die() {
 		this.alive=false;
 		this.setHasMoved();
@@ -157,11 +194,24 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 	}
 	
 	
-
+	/**
+	 * if mEntity can move
+	 * @param choice
+	 * choice
+	 *  @return choice
+	 * true or false
+	 */
 	public boolean canMove(ControllerOrder choice) {
 		return this.mapAllowsMvt(choice) && this.entityAllowsmvt(choice);
 		
 	}
+	/**
+	 * map allows movement 
+	 * @param choice
+	 * choice
+	 * @return choice
+	 * true or false
+	 */
 	public boolean mapAllowsMvt(ControllerOrder choice) {
 		switch (choice) {
 		case Up : 
@@ -180,7 +230,13 @@ public abstract  class MobileEntity extends Entity implements IMobile{
 				return true;
 		}
 	}
-	
+	/**
+	 * entity allows movement 
+	 * @param choice
+	 * choice
+	 *  @return choice
+	 * true or false
+	 */
 	public boolean entityAllowsmvt(ControllerOrder choice) {
 		Point posAfter = this.getPositionAfterOrder(choice);
 		for (IMobile mEntity: this.getMap().getmEntity()) {

@@ -28,7 +28,7 @@ import showboard.BoardFrame;
 /**
  * The Class View.
  *
- * @author Jean-Aymeric Diet
+ * @author Quentin, Lorry
  */
 public  class View implements IView, Runnable, KeyListener {
 	
@@ -36,7 +36,7 @@ public  class View implements IView, Runnable, KeyListener {
 	private BoardFrame boardFrame;
 	/**A constant squareSize	 */
 	private static final int squareSize = 50;
-	/**The list of mEntity	 */
+	/**The list of mEntities	 */
 	private ArrayList<IMobile> mEntity = null;
 	/**The closeView */
 	private Rectangle closeView = null;
@@ -102,9 +102,9 @@ public  class View implements IView, Runnable, KeyListener {
 		this.character = character;
 	}
 	/**
-	 * gets mEntity
-	 * @return mEntity
-	 * mobile Entity on the map
+	 * gets mEntities
+	 * @return mEntities
+	 * mobile Entities on the map
 	 */
 	public ArrayList<IMobile> getmEntity() {
 		return mEntity;
@@ -143,7 +143,7 @@ public  class View implements IView, Runnable, KeyListener {
 	 * @param character
 	 * our player
 	 * @param mEntity
-	 * our mobile Entity
+	 * our mobile Entities
 	 * @throws IOException
 	 * Signal an IOexception
 	 */

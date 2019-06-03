@@ -17,13 +17,13 @@ import entity.mobile.MobileEntity;
 /**
  * The Class Model.
  *
- * @author Jean-Aymeric Diet
+ * @author All
  */
 public final class Model implements IModel {
 
 	/** The map. */
 	private IMap map;
-	
+	/** The player*/
 	private IMobile character;
 
 	/**
@@ -69,7 +69,13 @@ public final class Model implements IModel {
 	}
 
 	
-
+	/**
+	 * MobileEntity and their strategy.
+	 * @param y
+	 * x
+	 * @param x
+	 * y
+	 */
 	public void moveEntity(int y, int x) {
 		ArrayList<IMobile> mEntity = new ArrayList<>(this.getMap().getmEntity());
 		

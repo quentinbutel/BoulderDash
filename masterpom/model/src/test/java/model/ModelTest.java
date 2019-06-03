@@ -7,7 +7,11 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+/**
+ * the class ModelTest
+ * @author Quentin, Lorry
+ *
+ */
 public class ModelTest {
 	
 	private Model model;
@@ -31,7 +35,9 @@ public class ModelTest {
 	}
 
 
-
+	/**
+	 * we check if GetCharacter works correctly
+	 */
 	@Test
 	public void testGetCharacter() {
 		assertNotNull(model.getCharacter());

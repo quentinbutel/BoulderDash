@@ -1,5 +1,9 @@
 package entity.motionless;
-
+/**
+ *the class MotionLessEntityFactory
+ * @author Quentin
+ *
+ */
 public class MotionLessEntityFactory {
 	/**
 	 * creates a new NotDugWall
@@ -53,6 +57,7 @@ public class MotionLessEntityFactory {
 	/**
 	 * returns an entity following the symbol
 	 * @param symbol
+	 * symbol
 	 * @return Motionlessentity
 	 * the entity associate to its symbol
 	 */

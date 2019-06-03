@@ -3,7 +3,11 @@ package entity.motionless;
 import entity.Entity;
 import entity.PERMEABILITY;
 import entity.Sprite;
-
+/**
+ *the class MotionLessEntity
+ * @author Quentin
+ *
+ */
  abstract class MotionLessEntity extends Entity{
 	 /**
 	  * instatiate a new montionless entity

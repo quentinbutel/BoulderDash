@@ -10,7 +10,11 @@ import entity.PERMEABILITY;
 import entity.Sprite;
 import entity.strategy.DiamondStrategy;
 import entity.strategy.IStrategy;
-
+/**
+ * the class Diamond
+ * @author Quentin
+ *
+ */
 public class Diamond extends MobileEntity{
 	private static IStrategy strategy = new DiamondStrategy();
 	

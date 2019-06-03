@@ -10,7 +10,11 @@ import entity.IMap;
 import entity.PERMEABILITY;
 import entity.Sprite;
 import showboard.IBoard;
-
+/**
+ * the class Charact
+ * @author All
+ *
+ */
 public class Charact extends MobileEntity{
 	
 	private static final Sprite sprite = new Sprite('C', Sprite.Chara,new Rectangle (0, 0, 16, 16));
@@ -38,42 +42,63 @@ public class Charact extends MobileEntity{
 		spriteUp.loadImage();
 		spriteDeath.loadImage();
 	}
+	
+	/**
+	 * move character to the up
+	 */
 	public void moveUp() {
-		
 		super.moveUp();
-		
 		this.setSprite(spriteUp);	
 		super.digg();
 	}
+	/**
+	 * move character to the down
+	 */
 	public void moveDown() {
 		
 		super.moveDown();
 		this.setSprite(spriteDown);
 		super.digg();
 	}
+	/**
+	 * move character to the right
+	 */
 	public void moveRight() {
 		
 		super.moveRight();
 		this.setSprite(spriteRight);
 		super.digg();
 	}
-	
+	/**
+	 * move character to the left
+	 */
 	public void moveLeft() {
-		
 		super.moveLeft();
 		this.setSprite(spriteLeft);
 		super.digg();
 	}
+	/**
+	 * Don't move
+	 */
 	public void immobile() {
 		super.immobile();
 		this.setSprite(sprite);
 	}
+	/**
+	 * character dies
+	 */
 	public void die() {
 		// TODO Auto-generated method stub
 		super.die();
 		this.setSprite(spriteDeath);
 	}
-	
+	/**
+	 * entity allows movement 
+	 * @param choice
+	 * choice
+	 *  @return choice
+	 * true or false
+	 */
 	public boolean entityAllowsmvt(final ControllerOrder choice) {
 		
 		//Can our character push a boulder
@@ -137,6 +162,14 @@ public class Charact extends MobileEntity{
 		}
 		return true;
 	}
+	
+	/**
+	 * map allows movement 
+	 * @param choice
+	 * choice
+	 *  @return choice
+	 * true or false
+	 */
 	public boolean mapAllowsMvt(final ControllerOrder choice) {
 		switch (choice) {
 		case Up : 
@@ -152,6 +185,14 @@ public class Charact extends MobileEntity{
 				return true;
 		}
 	}
+	
+	/**
+	 * if player can move
+	 * @param choice
+	 * choice
+	 *  @return choice
+	 * true or false
+	 */
 	public boolean canMove(final ControllerOrder choice) {
 		// TODO Auto-generated method stub
 		return this.entityAllowsmvt(choice) && this.mapAllowsMvt(choice);

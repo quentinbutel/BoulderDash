@@ -6,7 +6,11 @@ import java.awt.Rectangle;
 
 import entity.PERMEABILITY;
 import entity.Sprite;
-
+/**
+ * the class NotDugWall
+ * @author Quentin
+ *
+ */
 class NotDugWall extends MotionLessEntity{
 	/**
 	 * creates a new notdugwall

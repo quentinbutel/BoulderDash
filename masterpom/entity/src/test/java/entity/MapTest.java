@@ -14,7 +14,11 @@ import entity.mobile.Boulder;
 
 import entity.mobile.MobileEntity;
 import entity.motionless.MotionLessEntityFactory;
-
+/**
+ * the class MapTest
+ * @author Quentin, Lorry
+ *
+ */
 public class MapTest {
 	private Map map;
 	

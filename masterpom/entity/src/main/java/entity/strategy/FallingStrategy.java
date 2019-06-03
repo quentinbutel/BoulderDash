@@ -5,8 +5,23 @@ import entity.IMap;
 import entity.PERMEABILITY;
 import entity.mobile.IMobile;
 
-
+/**
+ * the class FallingStrategy
+ * @author All
+ *
+ */
 public abstract class FallingStrategy implements IStrategy{
+	/**
+	 * the Strategy for falling mEntities
+	 * @param mEntity
+	 * mobile Entity
+	 * @param map
+	 * our map
+	 * @param y
+	 * y
+	 * @param x
+	 * x
+	 */
 	public void strategy(IMobile mEntity, IMap map, int y, int x) {
 		
 		if (mEntity.canMove(ControllerOrder.Down)) {

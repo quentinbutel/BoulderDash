@@ -10,7 +10,11 @@ import org.junit.Test;
 
 import controller.Controller;
 import entity.ControllerOrder;
-
+/**
+ * the class ControllerTest
+ * @author Quentin, Lorry
+ *
+ */
 public class ControllerTest {
 
 	@BeforeClass
@@ -29,6 +33,9 @@ public class ControllerTest {
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * we check if GetOrder works correctly
+	 */
 	@Test
 	public void testGetOrder() {
 		Controller test = new Controller(null, null);
@@ -37,13 +44,17 @@ public class ControllerTest {
 			fail("Wrong type");
 		}
 	}
-
+	/**
+	 * we check if getView works correctly
+	 */
 	@Test
 	public void testGetView() {
 		Controller test = new Controller(null, null);
 		assertNull(test.getView());
 	}
-
+	/**
+	 * we check if GetModel works correctly
+	 */
 	@Test
 	public void testGetModel() {
 		Controller test = new Controller(null, null);

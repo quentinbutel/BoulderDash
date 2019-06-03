@@ -11,7 +11,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import entity.ControllerOrder;
-
+/**
+ * the class ViewTest
+ * @author Quentin, Lorry
+ *
+ */
 public class ViewTest {
 
 	Rectangle closeView;
@@ -32,7 +36,9 @@ public class ViewTest {
 	@After
 	public void tearDown() throws Exception {
 	}
-
+	/**
+	 * we check if GetCloseView works correctly
+	 */
 	@Test
 	public void testGetCloseView() {
 		final int width = 15;
@@ -41,7 +47,9 @@ public class ViewTest {
 		assertEquals(height, closeView.height);
 		
 	}
-
+	/**
+	 * we check if KeyCodeToControllerOrder works correctly
+	 */
 	@Test
 	public void testKeyCodeToControllerOrder() {
 		ControllerOrder expected = ControllerOrder.None;
