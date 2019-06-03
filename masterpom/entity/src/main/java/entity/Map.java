@@ -64,6 +64,7 @@ public class Map extends Observable implements IMap{
 	/**
 	 * change the amount of diamonds the player has gathered
 	 * @param diamondCount
+	 * Diamond Counter
 	 */
 	public void setDiamondCount(int diamondCount) {
 		this.diamondCount = diamondCount;
@@ -108,7 +109,7 @@ public class Map extends Observable implements IMap{
 	}
 	
 	/**
-	 * trigger the view of the changes
+	 * inform the view of the character changes
 	 */
 	public void setMobHasChanged() {
 		// method that informs the view(the observer) of the changes
@@ -116,18 +117,30 @@ public class Map extends Observable implements IMap{
 		this.notifyObservers();
 	
 	}
-	
+	/**
+	 * Adds motion elements to the map
+	 */
 	public void add(IMobile mEntity) {
 		this.mEntity.add(mEntity);
 	}
+	
+	/**
+	 * returns a motion element
+	 */
 	public ArrayList<IMobile> getmEntity() {
 		return this.mEntity;
 	}
 	
+	/**
+	 * add 1 to the Diamond Counter
+	 */
 	public void addDiamond() {
 		this.diamondCount++;
 	}
 	
+	/**
+	 * remove 1 to the Diamond Counter
+	 */
 	public void decreaseDiamond() {
 		this.diamondCount--;
 	}
