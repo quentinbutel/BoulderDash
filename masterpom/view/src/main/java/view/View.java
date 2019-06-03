@@ -31,18 +31,34 @@ import showboard.BoardFrame;
  * @author Jean-Aymeric Diet
  */
 public  class View implements IView, Runnable, KeyListener {
-	private BoardFrame boardFrame;
-	private static final int squareSize = 50;
-	private ArrayList<IMobile> mEntity = null;
-	private Rectangle closeView = null;
-	private  IMap map = null;
-	private  IMobile character = null;
 	
+	/**The boardFrame	 */
+	private BoardFrame boardFrame;
+	/**A constant squareSize	 */
+	private static final int squareSize = 50;
+	/**The list of mEntity	 */
+	private ArrayList<IMobile> mEntity = null;
+	/**The closeView */
+	private Rectangle closeView = null;
+	/**The map	 */
+	private  IMap map = null;
+	/**The player	 */
+	private  IMobile character = null;
+	/**The controller	 */
 	private IController controller;
+	/**
+	 * gets controller
+	 * @return controller 
+	 * our controller
+	 */
 	public IController getController() {
 		return controller;
 	}
-
+	/**
+	 * sets controller
+	 * @param controller
+	 * a new controller
+	 */
 	public void setController(IController controller) {
 		this.controller = controller;
 	}
@@ -54,7 +70,13 @@ public  class View implements IView, Runnable, KeyListener {
 	public IMap getMap() {
 		return map;
 	}
-
+	/**
+	 * sets map
+	 * @param map
+	 * a new map
+	 * @throws IOException
+	 * Signal an IOexception
+	 */
 	public void setMap(IMap map) throws IOException {
 		this.map = map;
 		for (int x = 0; x < Map.getWidth(); x++) {
@@ -63,33 +85,68 @@ public  class View implements IView, Runnable, KeyListener {
 			}
 		}
 	}
-
+	/**
+	 * gets character
+	 * @return character
+	 * our player
+	 */
 	public IMobile getCharacter() {
 		return character;
 	}
-
+	/**
+	 * sets character
+	 * @param character
+	 * a new player
+	 */
 	public void setCharacter(IMobile character) {
 		this.character = character;
 	}
-
+	/**
+	 * gets mEntity
+	 * @return mEntity
+	 * mobile Entity on the map
+	 */
 	public ArrayList<IMobile> getmEntity() {
 		return mEntity;
 	}
 
+	/**
+	 * sets mEntity
+	 * @param mEntity
+	 * a new mobile Entity on the map
+	 */
 	public void setmEntity(ArrayList<IMobile> mEntity) {
 		this.mEntity = mEntity;
 	}
-
+	/**
+	 * gets close view
+	 * @return closeView
+	 * closeView
+	 */
 	public Rectangle getCloseView() {
 		return closeView;
 	}
-
+	/**
+	 * sets closeView
+	 * @param closeView
+	 * a new rectangle for the view
+	 */
 	public void setCloseView(Rectangle closeView) {
 		this.closeView = closeView;
 	}
 
 	
-	
+	/**
+	 * Instantiates a new view
+	 * @param map
+	 * our map
+	 * @param character
+	 * our player
+	 * @param mEntity
+	 * our mobile Entity
+	 * @throws IOException
+	 * Signal an IOexception
+	 */
 	public View(final IMap map, final IMobile character, final ArrayList<IMobile> mEntity) throws IOException {
 		
 		this.setMap(map);
@@ -101,7 +158,13 @@ public  class View implements IView, Runnable, KeyListener {
 		SwingUtilities.invokeLater(this);
 	}
 
-	
+	/**
+	 * 
+	 * @param keyCode
+	 * the keyCode
+	 * @return ControllerOrder
+	 * controllerOrder of a person
+	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		//ControllerOrder control;
 		switch (keyCode) {
@@ -123,7 +186,9 @@ public  class View implements IView, Runnable, KeyListener {
 		
 	}
 
-	
+	/**
+	 * Print the message in the board.
+	 */
 	public void printMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 		
