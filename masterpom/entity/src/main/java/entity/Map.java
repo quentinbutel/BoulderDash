@@ -10,34 +10,68 @@ import entity.mobile.IMobile;
 
 public class Map extends Observable implements IMap{
 
+		/** width */
 	private final  static int width = 32;
-	
+	/** height*/
 	private final  static int height = 16;
+	/** Diamond Counter attribute*/
 	private int diamondCount = 0;
+	/** Board that contains motionless elements positions */
 	private IEntity[][] map;	
+	/** Array that contains motion elements */
 	private ArrayList<IMobile> mEntity;
+	/** character's creation */
 	private IMobile character;
 	
+	/**
+	 * gets map Width
+	 * @return width
+	 */
 	public static int getWidth() {
 		return width;
 	}
+	
+	/**
+	 * gets map Height
+	 * @return Height
+	 */
 	public static int getHeight() {
 		return height;
 	}
 
+	/**
+	 * gets Character
+	 * @return character
+	 */
 	public IMobile getCharacter() {
 		return character;
 	}
+	
+	/**
+	 * sets character
+	 */
 	public void setCharacter(IMobile character) {
 		this.character = character;
 	}
 	
+	/**
+	 * gets the amount of diamonds the player has gathered
+	 */
 	public int getDiamondCount() {
 		return diamondCount;
 	}
+	
+	/**
+	 * change the amount of diamonds the player has gathered
+	 * @param diamondCount
+	 */
 	public void setDiamondCount(int diamondCount) {
 		this.diamondCount = diamondCount;
 	}
+	
+	/**
+	 * gets Observable
+	 */
 	public Observable getObservable() {
 		return this;
 	}
@@ -53,7 +87,9 @@ public class Map extends Observable implements IMap{
 	
 	}
 	
-	
+	/**
+	 * returns motionless elements coordonates off the board
+	 */
 	public IEntity getOnTheMapXY(int x, int y) {
 		// we check if we are not at the edge of the map
 		 if(x >= 0 && x < Map.getWidth() && y >= 0 && y < Map.getHeight())
@@ -63,13 +99,19 @@ public class Map extends Observable implements IMap{
 		  
 	}
 	
+	/**
+	 * implements motionless elements in the board
+	 */
+	
 	public void setOnTheMapXY(IEntity entity, int x, int y) {
 		this.map[x][y] = entity;
 	}
 	
-	
+	/**
+	 * trigger the view of the changes
+	 */
 	public void setMobHasChanged() {
-		// It's our methode that will tell the view(the observer) if there is change
+		// method that informs the view(the observer) of the changes
 		this.setChanged();
 		this.notifyObservers();
 	

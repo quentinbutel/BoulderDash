@@ -12,29 +12,60 @@ import entity.ControllerOrder;
  */
 public final class Controller implements IController{
 
-	/** The view. */
+	/** The coordonates. */
 	private int y;
 	private int x;
-	
+	/**
+	 *  The View
+	 */
 	private IView		view;
+	
+	/** 
+	 * Refresh Speed
+	 */
 	private static final int thread = 200;
 
 	/** The model. */
 	private IModel	model;
+	
+	/**
+	 * Default Order
+	 */
 	private ControllerOrder order = ControllerOrder.None;
 
+	/**
+	 * gets Order
+	 * @return order
+	 * the order included in the order attribute 
+	 */
 	public ControllerOrder getOrder() {
 		return this.order;
 	}
+	
+	/**
+	 * sets Order
+	 * @param order
+	 * sends a new order
+	 */
 
 	public void setOrder(ControllerOrder order) {
 		this.order = order;
 	}
 
+	/**
+	 * gets view
+	 * @return view
+	 * our view
+	 */
 	public IView getView() {
 		return view;
 	}
 
+	/**
+	 * gets model
+	 * @return model
+	 * our model
+	 */
 	public IModel getModel() {
 		return model;
 	}
@@ -95,6 +126,9 @@ public final class Controller implements IController{
 		
 	}
 	
+	/**
+	 * reset order
+	 */
 	private void clearOrder() {
 		this.order=ControllerOrder.None;
 	}
