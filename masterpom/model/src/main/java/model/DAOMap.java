@@ -35,12 +35,7 @@ public class DAOMap{
 		
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
-			/*while (resultSet.next()) {
-				//System.out.print(resultSet.getString("item"));
-				 map1 = setmEntityOnMap(resultSet, id);
-				
-				//DAOMap.setmEntityOnMap(resultSet, id);
-			}*/
+			
 			map1 = setmEntityOnMap(resultSet);
 			return map1;
 			
@@ -61,8 +56,7 @@ public class DAOMap{
 		while (result.next()) {
 		for (char c : result.getString("item").toCharArray()) {
 
-			//for (int y = 0; y < Map.getHeight(); y++) {
-				//for (int x = 0; x < Map.getWidth(); x++) {
+			
 			if (x == Map.getWidth()) {
 				x = 0;
 				y++;
@@ -80,8 +74,7 @@ public class DAOMap{
 					}
 					x++;
 					
-				//}
-			//}
+				
 			
 		}
 		}
