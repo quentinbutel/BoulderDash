@@ -33,7 +33,7 @@ public abstract class Main {
      * the interrupted exception
      */
     public static void main(final String[] args) throws IOException, InterruptedException {
-        final IModel model = new Model(4);
+        final IModel model = new Model(1);
        final View view = new View(model.getMap(), model.getCharacter(), model.getMap().getmEntity());
         final IController controller = new Controller(view, model);
         view.setController(controller);

@@ -27,6 +27,7 @@ public abstract class FallingStrategy implements IStrategy{
 		if (mEntity.canMove(ControllerOrder.Down)) {
 			mEntity.moveDown();
 			mEntity.setFall(true);
+			
 		} else if(mEntity.isFalling() == true && mEntity.getY() == y-1 && mEntity.getX()==x) {
 			
 				map.getCharacter().die();

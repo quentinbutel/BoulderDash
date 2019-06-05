@@ -13,6 +13,10 @@ import entity.mobile.MobileEntity;
  *
  */
 public interface IMap {
+	
+	public void decreaseCompteur(int nbr);
+	public void addCompteur(int nbr);
+	public int getCompteur();
 	/**
 	 * 
 	 * @param x

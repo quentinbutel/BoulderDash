@@ -138,10 +138,14 @@ public class Charact extends MobileEntity{
 				if (mEntity.getPermeability() == PERMEABILITY.BLOCKING) {
 					//if he can, the boulder moves
 					if (push) {
-						if (choice == ControllerOrder.Right)
+						if (choice == ControllerOrder.Right) {
 							mEntity.moveRight();
-						else
+						this.getMap().decreaseCompteur(50);
+						}
+						else {
 							mEntity.moveLeft();
+							this.getMap().decreaseCompteur(50);
+						}
 						return true;
 					} else {
 
@@ -154,7 +158,7 @@ public class Charact extends MobileEntity{
 					this.getMap().getmEntity().remove(mEntity);
 					
 					this.getMap().decreaseDiamond();
-					
+					this.getMap().addCompteur(300);
 
 					return true;
 				}

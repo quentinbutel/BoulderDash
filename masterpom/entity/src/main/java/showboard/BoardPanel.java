@@ -2,6 +2,7 @@ package showboard;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -78,6 +79,12 @@ class BoardPanel extends JPanel implements Observer {
 
     /** The height looped. */
     private Boolean             heightLooped     = false;
+    
+ public long startTime = System.currentTimeMillis(), totalTime = 60, timeLeft;
+    
+    private String timer, compteurtest;
+    
+    private int positionInfosX = 10, positionInfosY = 5, tailleCompteurScore = 60;
 
     /**
      * Instantiates a new board panel.
@@ -110,10 +117,62 @@ class BoardPanel extends JPanel implements Observer {
             for (int y = this.getCornerMinY(); y <= this.getCornerMaxY(); y++) {
                 this.drawSquareXY(graphics, x, y);
                 this.drawPawnsXY(graphics, mapPawn, x, y);
+                
             }
         }
+        
+        long elapsedTime = System.currentTimeMillis() - startTime;
+        long elapsedSeconds = elapsedTime / 1000;
+    
+        compteurtest = " " + entity.Map.compteur;
+      
+        timeLeft = totalTime - elapsedSeconds;
+        timer = " " + timeLeft;
+
+    graphics.setColor(Color.black);
+            graphics.drawOval(positionInfosX - 1, positionInfosY - 1, 42, 42);
+            graphics.drawOval(positionInfosX + 29, positionInfosY - 1, 42, 42);
+            graphics.drawRect(positionInfosX + 14, positionInfosY, 39, 40);
+            graphics.setColor(Color.lightGray);
+            graphics.fillOval(positionInfosX, positionInfosY, 40, 40);
+            graphics.fillOval(positionInfosX + 30, positionInfosY, 40, 40);
+            graphics.fillRect(positionInfosX + 15, positionInfosY + 1, 40, 39);
+    
+            /**
+             * Creates the diamondsLeft "box"
+             */
+    
+            graphics.setColor(Color.black);
+            graphics.drawOval(positionInfosX + 79, positionInfosY - 1, 42, 42);
+            graphics.drawOval(positionInfosX + 69 + tailleCompteurScore, positionInfosY - 1, 42, 42);
+            graphics.drawRect(positionInfosX + 94, positionInfosY, tailleCompteurScore, 40);
+            graphics.setColor(Color.lightGray);
+            graphics.fillOval(positionInfosX + 80, positionInfosY, 40, 40);
+            graphics.fillOval(positionInfosX + 70 + tailleCompteurScore, positionInfosY, 40, 40);
+            graphics.fillRect(positionInfosX + 95, positionInfosY + 1, tailleCompteurScore, 39);
+            
+            
+    
+            
+/**
+             * draws the timer on the screen, on top of the timer box as well as the diamonds left
+             */
+    
+
+            graphics.setColor(Color.black);
+            graphics.setFont(new Font("Arial", Font.PLAIN, 30));
+            graphics.drawString(timer, positionInfosX, positionInfosY + 31);
+           
+            graphics.drawString(compteurtest, positionInfosX + 80, positionInfosY + 31);
+           
+            if(timeLeft == 0)
+            {
+                entity.mobile.MobileEntity.alive = false;
+            }
+}
+        
        
-    }
+    
 
     /*
      * (non-Javadoc)

@@ -20,14 +20,26 @@ public class Map extends Observable implements IMap{
 	/** height*/
 	private final  static int height = 16;
 	/** Diamond Counter attribute*/
-	private int diamondCount = 0;
+	public static int diamondCount = 0;
 	/** Board that contains motionless elements positions */
 	private IEntity[][] map;	
 	/** Array that contains motion elements */
 	private ArrayList<IMobile> mEntity;
 	/** character's creation */
 	private IMobile character;
+	 public static int compteur;
 	
+	public int getCompteur() {
+		return compteur;
+	}
+
+	public void addCompteur(int nbr) {
+		compteur += nbr;
+	}
+	
+	public void decreaseCompteur(int nbr) {
+		compteur -= nbr;
+	}
 	/**
 	 * gets map Width
 	 * @return width
@@ -168,7 +180,7 @@ public class Map extends Observable implements IMap{
 		    
 		    if(this.getCharacter().getPosition().equals(point))
 		    	return this.getCharacter().getPermeability();
-		    
+		   
 		    return this.getOnTheMapXY(x, y).getPermeability();
 		  }
 	 

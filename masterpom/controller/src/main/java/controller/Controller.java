@@ -180,12 +180,14 @@ public final class Controller implements IController{
 			this.getView().updateBoard();
 			
 			if (this.getModel().getMap().getDiamondCount()==0) {
-				this.getView().printMessage("Good Game");
+				this.getView().printMessage("Good Game, you have " + this.getModel().getMap().getCompteur() + " points");
+				
 				System.exit(0);
 			}
 		}
 		
-		this.getView().printMessage("Game Over");
+		this.getView().printMessage("Game Over, you are missing " + this.getModel().getMap().getDiamondCount() + 
+				" diamonds and you have " + this.getModel().getMap().getCompteur() + " points");
 		System.exit(0);
 	}
 

@@ -32,7 +32,7 @@ public class DiamondStrategy extends FallingStrategy{
 			map.getmEntity().remove(mEntity);
 			
 			map.decreaseDiamond();
-			
+			map.addCompteur(200);
 		}
 		super.strategy(mEntity, map, y, x);
 	}

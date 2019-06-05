@@ -25,14 +25,14 @@ import entity.strategy.IStrategy;
  */
 public abstract  class MobileEntity extends Entity implements IMobile{
 	/** alive*/
-	  private boolean alive =true;
+	  public static boolean alive =true;
 	  /**position*/
 	  private Point position;
 	  /**map*/
 	  private IMap map;
 	  /**fall*/
 	  private boolean fall = false;
-	 
+	
 	  /**
 	   * sets fall
 	   * @param fall

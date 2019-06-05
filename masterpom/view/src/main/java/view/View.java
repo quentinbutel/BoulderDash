@@ -241,11 +241,9 @@ public  class View implements IView, Runnable, KeyListener {
 		for (int x = 0; x < Map.getWidth(); x++) {
 			for (int y = 0; y < Map.getHeight(); y++) {
 				boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
+				
 			}
-		}
-		
-		
-		
+		}	
 	}
 
 	@Override
